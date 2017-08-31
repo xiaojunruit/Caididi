@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item
+        android:drawable="@mipmap/big_fan1"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan2"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan3"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan4"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan5"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan6"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan7"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan8"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan9"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan10"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan11"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan12"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan13"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan14"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan15"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan16"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan17"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan18"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan19"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan20"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan21"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan22"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan23"
+        android:duration="10" />
+    <item
+        android:drawable="@mipmap/big_fan24"
+        android:duration="10" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</animation-list>  

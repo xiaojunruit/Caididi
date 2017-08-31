@@ -1,0 +1,92 @@
+<resources>
+    <string name="appname">菜滴滴</string>
+    <string name="supply_price"><![CDATA[
+    <font color="#ffac2d">¥</font><font color="#ffac2d"><big><big><big>1.2</big></big></big></font></font><font color="#999999" size="10">斤</font>
+    ]]></string>
+    <string name="supply_browse"><![CDATA[
+    <font>浏览45112·留言12</font>
+    ]]></string>
+    <string name="purchase_num"><![CDATA[
+    <font color="#ffac2d"><big><big><big>3000</big></big></big></font>吨
+    ]]></string>
+    <string name="zone_img_position">circle_img_position</string>
+
+    <string name="planting_crops"><![CDATA[种植作物：<font color="#ffac2d">%1$s</font>]]></string>
+    <string name="farming_area"><![CDATA[耕种面积：<font color="#ffac2d">%1$s亩</font>]]></string>
+    <string name="operating_time"><![CDATA[操作时间：<font color="#fa5a14">%1$s</font>]]></string>
+    <string name="recent_operation"><![CDATA[近期操作：<font color="#fa5a14">%1$s</font>]]></string>
+
+
+    <string name="farmland_detail_name"><![CDATA[<font color="#2AB80E">%1$s</font>   %2$s亩]]></string>
+    <string name="farmland_detail_money"><![CDATA[累计花费：<font color="#ffac2d">￥%1$s</font>]]></string>
+    <string name="farmland_detail_item_money"><![CDATA[花费：<font color="#ffac2d">￥%1$s</font>]]></string>
+
+    <string name="no_crop_hint">您还没有关注作物\n请先关注作物 关注后将展示这些作物的问题</string>
+
+    <string name="no_login_hint">您当前未登录\n请先登录 登陆后将展示您所关注的作物问题</string>
+
+    <string name="no_crop_btn_text">关注作物</string>
+    <string name="no_user_btn_text">关注用户</string>
+    <string name="answer_count">回答 %1$s</string>
+    <string name="read_count">浏览 %1$s</string>
+    <string name="count_read">%1$s 浏览</string>
+    <string name="collect_total">收藏 %1$s</string>
+    <string name="address">所在地：%1$s</string>
+    <string name="expire_time">截止时间：%1$s</string>
+    <string name="contacts">联系人：%1$s</string>
+    <string name="mobile">电话：%1$s</string>
+    <string name="phone">手机：%1$s</string>
+    <string name="email">邮箱：%1$s</string>
+    <string name="local">详情地址：%1$s</string>
+    <string name="user_name">姓名：%1$s</string>
+    <string name="crop">作物：%1$s</string>
+    <string name="planting_area">种植面积：%1$s</string>
+    <string name="topic_desc">问题描述：%1$s</string>
+    <string name="release_time">发布时间：%1$s</string>
+    <string name="user_name_dark"><![CDATA[姓名：<font color="333333">%1$s</font>]]></string>
+    <string name="mobile_dark"><![CDATA[电话：<font color="#333333">%1$s</font>]]></string>
+    <string name="crops"><![CDATA[作物：<font color="#2AB80E">%1$s</font>]]></string>
+    <string name="planting_area_orange"><![CDATA[种植面积：<font color="#ffac2d">%1$s</font>亩]]></string>
+    <string name="settle_money"><![CDATA[结算金额：<font color="#ffac2d">￥%1$s</font>元]]></string>
+    <string name="settle_time">结算时间：%1$s</string>
+    <string name="current_settle_money">本次结算金额：￥%1$s</string>
+    <string name="order_num">订单号码：%1$s</string>
+    <string name="order_total_money">订单总额：￥%1$s</string>
+    <string name="order_total_money_no">订单总额：%1$s元</string>
+    <string name="surplus_not_settle_money_orange"><![CDATA[剩余未结算金额：<font color="#ffac2d">￥%1$s元</font>]]></string>
+    <string name="surplus_not_settle_money">剩余未结算金额：%1$s元</string>
+    <string name="greens_type">蔬菜品种：%1$s</string>
+    <string name="greens_price">蔬菜价格：%1$s</string>
+    <string name="greens_gross_weight">蔬菜毛重：%1$s</string>
+    <string name="wagon_weight">车皮毛重：%1$s</string>
+    <string name="greens_suttle">蔬菜净重：%1$s</string>
+    <string name="subtotal">小计：%1$s</string>
+    <string name="order_serial_number">订单编号：%1$s</string>
+    <string name="order_total_money_green"><![CDATA[订单总额：<font color="#2AB80E">%1$s</font>元]]></string>
+    <string name="order_state"><![CDATA[订单状态：<font color="#ffac2d">%1$s</font>]]></string>
+    <string name="update_time">更新时间：%1$s</string>
+    <string name="pay_money">已付%1$s元</string>
+    <string name="discount_money">优惠：%1$s元</string>
+    <string name="full_address">位置：%1$s</string>
+    <string name="packing_total_money">包装总重：%1$s</string>
+    <string name="vegetable_standard">蔬菜标准：%1$s</string>
+    <string name="space">地址：%1$s</string>
+    <string name="defective">蔬菜实收总重：%1$s</string>
+    <string name="date">日期：%1$s</string>
+    <string name="tem">%1$s°</string>
+    <string name="my_id">ID：%1$s</string>
+    <string name="humidity">湿度 %1$s</string>
+    <string name="invite_num">邀请人数：%1$s</string>
+    <string name="forthe_total"><![CDATA[待结算总金额：<font color="#ffac2d">%1$s</font>元]]></string>
+    <string name="third_username"><![CDATA[<font color="#666666">尊敬的%1$s用户：</font> <font color="#2AB80E">%2$s</font>]]></string>
+    <string name="price"><![CDATA[<big><big><font color="#FF9731">%1$s</font> </big></big>%2$s]]></string>
+    <string name="release_msg"><![CDATA[<font color="#999999">已发布<font color="#ffac2d">%1$s</font>条求购信息</font>]]></string>
+
+    <string name="detail_address">%1$s %2$s %3$s %4$s %5$s</string>
+    <string name="home_weather">%1$s %2$s</string>
+
+    <string name="price_no_symbol">价格：%1$s</string>
+
+    <string name="call_version_inconsistent">通话协议版本不一致</string>
+    <string name="at_your_in_group">%s在群聊中@了你</string>
+</resources>

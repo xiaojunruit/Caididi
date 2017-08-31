@@ -1,0 +1,163 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.lexiangquan.happybuy.ui.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:onClick="@{onClick}">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_underline"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="@dimen/gap_2x"
+                    android:src="@mipmap/icon_username" />
+
+                <EditText
+                    android:id="@+id/txt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:hint="请输入帐号或手机号码"
+                    android:singleLine="true"
+                    android:textColor="@color/textDark"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_underline"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="@dimen/gap_2x"
+                    android:src="@mipmap/icon_password" />
+
+                <EditText
+                    android:id="@+id/txt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_6" />
+
+                <TextView
+                    android:id="@+id/btn_forget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="@{onClick}"
+                    android:padding="@dimen/gap"
+                    android:text="忘记密码?"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_6" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_login"
+                style="@style/Button.Solid.Big"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp"
+                android:text="登陆" />
+
+            <TextView
+                android:id="@+id/btn_phone_register"
+                style="@style/Button.Solid.Big.Grey"
+                android:layout_marginTop="10dp"
+                android:onClick="@{onClick}"
+                android:text="通过手机注册" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/gap_5x"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:padding="@dimen/gap_2x">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/border" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="或用以下方式登陆"
+                    android:textColor="@color/textMinor"
+                    android:textSize="13sp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ezy.widget.view.IconTextButton
+                    android:id="@+id/btn_weixin"
+                    style="@style/Button.ThirdLogin"
+                    android:onClick="@{onClick}"
+                    android:text="微信登陆"
+                    app:iconDrawable="@mipmap/ic_share_wx" />
+
+                <ezy.widget.view.IconTextButton
+                    android:id="@+id/btn_qq"
+                    style="@style/Button.ThirdLogin"
+                    android:onClick="@{onClick}"
+                    android:text="QQ登陆"
+                    app:iconDrawable="@mipmap/ic_share_qq" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

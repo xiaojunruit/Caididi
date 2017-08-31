@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.MTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarSize">@dimen/size_action_bar</item>
+        <item name="android:screenOrientation">portrait</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <!-- SettingView -->
+        <item name="style_setting">@style/SettingView.Style</item>
+        <item name="style_setting_icon">@style/SettingViewIcon</item>
+        <item name="style_setting_title">@style/SettingViewTitle</item>
+        <item name="style_setting_summary">@style/SettingViewSummary</item>
+        <item name="style_setting_value">@style/SettingView.Value</item>
+        <item name="style_setting_arrow">@style/SettingViewArrow</item>
+        <!-- LoadingLayout -->
+        <item name="style_loading_layout">@style/LoadingLayoutStyle</item>
+        <item name="android:listDivider">@drawable/divider_bg</item>
+
+    </style>
+
+
+    <style name="MTheme1" parent="Base.MTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="MTheme" parent="Base.MTheme"></style>
+
+    <style name="MTheme.Splash" parent="Base.MTheme">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowBackground">@mipmap/splash</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="MTheme.Guide" parent="Base.MTheme">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+
+    <style name="SettingViewSummary" parent="@style/SettingView.Summary">
+        <item name="android:textSize">@dimen/sp_6</item>
+    </style>
+
+    <style name="SettingViewArrow" parent="@style/SettingView.Arrow">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+
+    <style name="SettingViewIcon" parent="@style/SettingView.Icon">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_marginRight">@dimen/gap_2x</item>
+    </style>
+
+    <style name="SettingViewTitle" parent="@style/SettingView.Title">
+        <item name="android:textColor">@color/textPrimary</item>
+        <!--<item name="android:textColor">@color/textDark</item>-->
+    </style>
+
+    <!--<item name="loadingLayout">@layout/widget_loading_view</item>-->
+    <style name="LoadingLayoutStyle" parent="LoadingLayout.Style">
+        <item name="errorLayout">@layout/layout_error_layout</item>
+        <item name="emptyLayout">@layout/layout_empty_layout</item>
+
+        <item name="loadingText">加载中...</item>
+        <item name="emptyImage">@null</item>
+        <item name="emptyText">暂无数据~</item>
+        <item name="errorImage">@null</item>
+        <item name="errorText">你的网络似乎开小差了！</item>
+        <item name="errorDesc">请检查你的手机是否联网</item>
+        <item name="errorButtonText">再试试</item>
+    </style>
+
+    <style name="BannerView" />
+
+    <style name="BannerView.Normal">
+        <item name="android:background">@android:color/white</item>
+        <item name="bv_barColor">#00000000</item>
+        <item name="bv_barPaddingBottom">@dimen/gap_2x</item>
+        <item name="bv_barPaddingLeft">@dimen/gap_2x</item>
+        <item name="bv_barPaddingRight">@dimen/gap_2x</item>
+        <item name="bv_barPaddingTop">@dimen/gap_2x</item>
+        <item name="bv_barVisibleWhenLast">true</item>
+        <item name="bv_delay">3</item>
+        <item name="bv_interval">4</item>
+        <item name="bv_scale">-1</item>
+        <item name="bv_isAuto">true</item>
+        <item name="bv_isLoop">true</item>
+        <item name="bv_titleVisible">false</item>
+        <item name="bv_indicatorVisible">auto</item>
+        <item name="bv_indicatorGravity">center</item>
+        <item name="bv_indicatorCornerRadius">3dp</item>
+        <item name="bv_indicatorGap">6dp</item>
+        <item name="bv_indicatorHeight">6dp</item>
+        <item name="bv_indicatorWidth">6dp</item>
+        <item name="bv_indicatorColorSelected">@color/colorAccent</item>
+        <item name="bv_indicatorColor">#cccccc</item>
+        <item name="bv_indicatorStyle">round</item>
+    </style>
+
+    <style name="MyToolbar" parent="android:Widget">
+        <item name="titleTextAppearance">@style/ToolBarTitle</item>
+        <!--<item name="subtitleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle</item>-->
+        <item name="android:minHeight">48dp</item>
+        <item name="titleMargins">4dp</item>
+        <item name="maxButtonHeight">56dp</item>
+        <item name="collapseIcon">?attr/homeAsUpIndicator</item>
+        <!--<item name="collapseContentDescription">@string/abc_toolbar_collapse_description</item>-->
+        <item name="contentInsetStart">16dp</item>
+        <!--<item name="android:paddingLeft">@dimen/abc_action_bar_default_padding_start_material</item>-->
+        <!--<item name="android:paddingRight">@dimen/abc_action_bar_default_padding_end_material</item>-->
+    </style>
+
+    <style name="ToolBarTitle" parent="android:Widget">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="WindowStyle">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="LetterIndexTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">@dimen/side_letter_bar_width</item>
+        <item name="android:background">@color/background</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <dimen name="side_letter_bar_width">36dp</dimen>
+</resources>

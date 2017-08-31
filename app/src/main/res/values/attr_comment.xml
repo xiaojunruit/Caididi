@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <item name="cl_avatar" type="id" />
+    <item name="cl_address" type="id" />
+    <item name="cl_nick_name" type="id" />
+    <item name="cl_time" type="id" />
+    <item name="cl_read_count" type="id" />
+
+    <declare-styleable name="CommentsLayout">
+        <attr name="cl_avatar" format="reference" />
+        <attr name="cl_address" format="string" />
+        <attr name="cl_nick_name" format="string" />
+        <attr name="cl_time" format="string" />
+        <attr name="cl_read_count" format="string" />
+        <attr name="cl_layout" format="reference"></attr>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="wanttoknow"
+            type="boolean"/>
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_gray"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_want_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/gap_2x"
+            android:textColor="@color/textWhite"
+            android:textSize="15sp"
+            android:onClick="@{listener}"
+            android:text='@{!wanttoknow?"想知道答案":"取消想知道答案"}'
+            tools:text="取消想知道答案"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#555555" />
+
+        <TextView
+            android:id="@+id/tv_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap_2x"
+            android:layout_marginRight="@dimen/gap_2x"
+            android:textColor="@color/textWhite"
+            android:textSize="15sp"
+            android:onClick="@{listener}"
+            android:text="评论" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#555555" />
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap_2x"
+            android:onClick="@{listener}"
+            android:textColor="@color/textWhite"
+            android:textSize="15sp"
+            android:text="分享" />
+
+    </LinearLayout>
+</layout>

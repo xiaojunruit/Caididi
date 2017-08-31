@@ -1,0 +1,157 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_f4"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:background="@color/textWhite"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/gap_3x"
+            android:paddingRight="@dimen/gap_3x">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/gap_3x"
+                android:paddingTop="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="手机号" />
+
+
+                <EditText
+                    android:id="@+id/txt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入手机号"
+                    android:inputType="number"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/gap_2x"
+                android:paddingTop="@dimen/gap_2x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="验证码" />
+
+
+                <EditText
+                    android:id="@+id/txt_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/btn_send_code"
+                    style="@style/Button.Round.AuthCode"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="@dimen/gap_2x"
+                    android:layout_weight="0"
+                    android:background="@drawable/bg_white_round_accent"
+                    android:text="发送验证码" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/gap_3x"
+                android:paddingTop="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="密码" />
+
+                <EditText
+                    android:id="@+id/txt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout style="@style/UI.Group">-->
+        <!--<ezy.widget.view.LabelEditText-->
+        <!--android:id="@+id/txt_phone"-->
+        <!--style="@style/Form.EditText.Label"-->
+        <!--android:hint="请输入手机号码"-->
+        <!--android:inputType="phone"-->
+        <!--app:labelText="手机号" />-->
+
+        <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/bg_underline">-->
+
+        <!--<ezy.widget.view.LabelEditText-->
+        <!--android:id="@+id/txt_code"-->
+        <!--style="@style/Form.EditText.Label"-->
+        <!--android:hint="请输入验证码"-->
+        <!--android:inputType="number"-->
+        <!--app:labelText="验证码"/>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/btn_send_code"-->
+        <!--style="@style/Button.Round.AuthCode"-->
+        <!--android:layout_gravity="right|center_vertical"-->
+        <!--android:layout_marginRight="@dimen/gap_4x"-->
+        <!--android:background="@drawable/bg_white_round_accent"-->
+        <!--android:text="发送验证码"/>-->
+        <!--</FrameLayout>-->
+
+        <!--<ezy.widget.view.LabelEditText-->
+        <!--android:id="@+id/txt_password"-->
+        <!--style="@style/Form.EditText.Label"-->
+        <!--android:hint="请输入密码"-->
+        <!--android:inputType="textPassword"-->
+        <!--app:labelText="密码"/>-->
+        <!--</LinearLayout>-->
+        <TextView
+            android:id="@+id/btn_submit"
+            style="@style/Button.Solid.Big"
+            android:layout_margin="@dimen/gap_3x"
+            android:text="提交" />
+
+    </LinearLayout>
+
+</layout>

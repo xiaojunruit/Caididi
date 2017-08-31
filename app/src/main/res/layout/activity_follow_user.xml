@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="@dimen/gap_2x"
+                android:layout_marginLeft="@dimen/gap_4x"
+                android:layout_marginRight="@dimen/gap_4x"
+                android:background="@drawable/bg_round_white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="@dimen/gap_2x"
+                    android:src="@mipmap/ic_search_gray" />
+
+                <EditText
+                    android:id="@+id/edittxt_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:hint="请输入用户名"
+                    android:singleLine="true"
+                    android:textColor="@color/textDark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/textWhite"
+                android:divider="@null"
+                android:scrollbarStyle="outsideInset" />
+
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/search_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/textWhite"
+                android:divider="@null"
+                android:visibility="gone"
+                android:scrollbarStyle="outsideInset" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.Invite" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-1dp"
+                    android:background="@mipmap/bg_invite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_4x"
+                        android:gravity="center_horizontal"
+                        android:text='@{item.desc}'
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap"
+                        android:gravity="center_horizontal"
+                        android:text='@{item.descLong}'
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/btn_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/gap_4x"
+                        android:background="@drawable/bg_round_yellow"
+                        android:onClick="@{listener}"
+                        android:paddingBottom="@dimen/gap_2x"
+                        android:paddingLeft="80dp"
+                        android:paddingRight="80dp"
+                        android:paddingTop="@dimen/gap_2x"
+                        android:text='@{@string/invite_num(item.inviteNum==null?"":item.inviteNum)}'
+                        android:textColor="#FF3E3E"
+                        android:textSize="@dimen/sp_8" />
+
+                    <TextView
+                        android:id="@+id/btn_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/gap_3x"
+                        android:onClick="@{listener}"
+                        android:text="点击查看详情"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_6" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_5x"
+                    android:gravity="center_horizontal"
+                    android:text="分享页面给朋友"
+                    android:textColor="@color/textDark" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_6x"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/gap_4x"
+                    android:paddingRight="@dimen/gap_4x">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_centerVertical="true"
+                        android:background="@color/border" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@color/textWhite"
+                        android:textColor="@color/textNearlyGray"
+                        android:paddingLeft="@dimen/gap"
+                        android:paddingRight="@dimen/gap"
+                        android:text="立即分享" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_radius_white"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/gap_4x"
+                    android:paddingRight="@dimen/gap_4x"
+                    android:paddingTop="@dimen/gap_4x">
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/btn_wx"
+                        style="@style/Button.Share"
+                        android:onClick="@{listener}"
+                        app:iconDrawable="@mipmap/ic_wx" />
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/btn_friend"
+                        style="@style/Button.Share"
+                        android:onClick="@{listener}"
+                        app:iconDrawable="@mipmap/ic_friend" />
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/btn_qq"
+                        style="@style/Button.Share"
+                        android:onClick="@{listener}"
+                        app:iconDrawable="@mipmap/ic_qq" />
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/btn_qzone"
+                        style="@style/Button.Share"
+                        android:onClick="@{listener}"
+                        app:iconDrawable="@mipmap/ic_qzone" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@drawable/bg_under_dotted_line"
+                    android:layout_marginLeft="@dimen/gap_4x"
+                    android:layout_marginRight="@dimen/gap_4x"/>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/gap_4x"
+                    android:src="@{item.laodao}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_3x"
+                    android:gravity="center_horizontal"
+                    android:text="@{item.laodaoName}" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

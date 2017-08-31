@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_radius_white"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/gap_5x"
+        android:paddingLeft="@dimen/gap_2x"
+        android:paddingRight="@dimen/gap_2x"
+        android:paddingTop="@dimen/gap_5x">
+
+        <ezy.widget.view.IconTextButton
+            android:id="@+id/btn_wx"
+            style="@style/Button.Share"
+            android:onClick="@{onClick}"
+            android:text="微信"
+            app:iconDrawable="@mipmap/ic_wx" />
+
+        <ezy.widget.view.IconTextButton
+            android:id="@+id/btn_friend"
+            style="@style/Button.Share"
+            android:onClick="@{onClick}"
+            android:text="朋友圈"
+            app:iconDrawable="@mipmap/ic_friend" />
+
+        <ezy.widget.view.IconTextButton
+            android:id="@+id/btn_qq"
+            style="@style/Button.Share"
+            android:onClick="@{onClick}"
+            android:text="QQ"
+            app:iconDrawable="@mipmap/ic_qq"/>
+
+        <ezy.widget.view.IconTextButton
+            android:id="@+id/btn_qzone"
+            style="@style/Button.Share"
+            android:onClick="@{onClick}"
+            android:text="QQ空间"
+            app:iconDrawable="@mipmap/ic_qzone"/>
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
+
+            <include layout="@layout/widget_toolbar"/>
+
+
+            <EditText
+                android:id="@+id/edittxt_search"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginBottom="@dimen/gap_2x"
+                android:layout_marginLeft="@dimen/gap_4x"
+                android:layout_marginRight="@dimen/gap_4x"
+                android:background="@drawable/bg_round_white"
+                android:drawableLeft="@mipmap/ic_search_gray"
+                android:drawablePadding="@dimen/gap_2x"
+                android:gravity="center_vertical"
+                android:hint="请输入您要关注的作物"
+                android:paddingLeft="@dimen/gap_2x"
+                android:singleLine="true"
+                android:textSize="@dimen/sp_7" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/ll_title"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/ll_crop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_left"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/background_f4"
+                    app:layoutManager="LinearLayoutManager" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:background="@color/textWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_item_selected"
+                        android:paddingBottom="@dimen/gap_2x"
+                        android:paddingLeft="@dimen/gap_3x"
+                        android:paddingTop="@dimen/gap_2x"
+                        android:text="常绿果树" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_right"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        app:layoutManager="LinearLayoutManager" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_search_crop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/textWhite"
+                android:visibility="gone"
+                app:layoutManager="LinearLayoutManager"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_botton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_line_top">
+
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:paddingBottom="@dimen/gap"
+                android:paddingLeft="@dimen/gap_2x"
+                android:paddingRight="@dimen/gap_2x"
+                android:paddingTop="@dimen/gap"
+                android:text=" "
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/transparent" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_follow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/count"
+                android:orientation="horizontal"
+                app:layoutManager="LinearLayoutManager" />
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/gap_4x"
+                android:background="@drawable/bg_round_accent_20"
+                android:paddingBottom="@dimen/gap"
+                android:paddingLeft="@dimen/gap_3x"
+                android:paddingRight="@dimen/gap_3x"
+                android:paddingTop="@dimen/gap"
+                android:text="0"
+                android:textColor="@color/textWhite" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

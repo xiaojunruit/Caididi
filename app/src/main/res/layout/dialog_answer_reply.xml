@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/textWhite">
+
+        <ezy.widget.view.LabelEditText
+            android:id="@+id/edttxt_content"
+            style="@style/Form.EditText.Label"
+            android:layout_height="100dp"
+            android:background="@color/textWhite"
+            android:gravity="top|left"
+            android:hint="我来说两句..."
+            android:padding="@dimen/gap_3x"
+            android:singleLine="false"
+            app:labelWidth="0dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:padding="@dimen/gap_3x">
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                android:textColor="@color/textMinor"
+                android:onClick="@{listener}"
+                android:layout_marginRight="@dimen/gap_6x"/>
+            <TextView
+                android:id="@+id/tv_release"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textHighlightMinor"
+                android:onClick="@{listener}"
+                android:text="发布"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

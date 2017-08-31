@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TagCropGroup">
+        <attr name="tgp_vertical_spacing" format="dimension" />
+        <attr name="tgp_horizontal_spacing" format="dimension" />
+        <attr name="tgp_max_row" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="AnswerShare">
+        <attr name="icShare" format="reference" />
+        <attr name="textShare" format="string" />
+    </declare-styleable>
+    <declare-styleable name="NineGridImageView">
+        <attr name="singleImgWidth" format="dimension" />
+        <attr name="singleImgHeight" format="dimension" />
+        <attr name="imgGap" format="dimension" />
+        <attr name="maxSize" format="integer" />
+        <attr name="showStyle" format="enum">
+            <enum name="grid" value="0" />
+            <enum name="fill" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="RoundImageView">
+        <attr name="riv_borderRadius" format="dimension" />
+        <attr name="riv_type">
+            <enum name="circle" value="0" />
+            <enum name="roundAll" value="1" />
+            <enum name="roundOther" value="2" />
+        </attr>
+        <attr name="riv_left_top_radius" format="dimension" />
+        <attr name="riv_right_top_radius" format="dimension" />
+        <attr name="riv_left_bottom_radius" format="dimension" />
+        <attr name="riv_right_bottom_radius" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="AbsRoundImageView">
+        <attr name="vi_borderWidth" format="dimension|reference" />
+        <attr name="vi_borderColor" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView2">
+        <attr name="leftTopRadius" format="dimension|reference" />
+        <attr name="rightTopRadius" format="dimension|reference" />
+        <attr name="rightBottomRadius" format="dimension|reference" />
+        <attr name="leftBottomRadius" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandTextView">
+        <attr name="etv_full_img" format="reference" />
+        <attr name="etv_max_lines" format="integer" />
+        <attr name="etv_prompt" format="string" />
+        <attr name="etv_text_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="TextImageButton">
+        <attr name="ttb_imageSize" format="dimension" />
+        <attr name="ttb_textSize" format="dimension" />
+        <attr name="ttb_text" format="string" />
+        <attr name="ttb_image" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingView">
+        <attr name="loadingView" format="reference" />
+        <attr name="errorView" format="reference" />
+        <attr name="emptyView" format="reference" />
+        <attr name="noNetworkView" format="reference" />
+        <attr name="contentView" format="reference" />
+    </declare-styleable>
+
+</resources>

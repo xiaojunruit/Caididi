@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.User" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_f4">
+
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_user_info" />
+
+
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.andview.refreshview.XScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/topPanel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fitsSystemWindows="true"
+                        android:paddingBottom="@dimen/gap_3x">
+
+                        <LinearLayout
+                            android:id="@+id/ll_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/gap_3x">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/avatar"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:onClick="@{onClick}"
+                                app:avatar='@{item.avatar}'
+                                app:civ_border_color="#55D391"
+                                app:civ_border_width="@dimen/gap" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/gap_2x"
+                                android:text='@{item.nickname}'
+                                android:textColor="@color/textWhite"
+                                tools:text="adsfasd" />
+
+                            <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="@dimen/gap_2x"-->
+                            <!--android:text='@{item.signature}'-->
+                            <!--android:paddingLeft="@dimen/gap_4x"-->
+                            <!--android:paddingRight="@dimen/gap_4x"-->
+                            <!--android:textColor="@color/textWhite"-->
+                            <!--tools:text="阿道夫撒打發斯蒂芬" />-->
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_follow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="90dp"
+                            android:onClick="@{onClick}">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:user_follow_status="@{item.state}" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/textWhite"
+                        android:orientation="vertical">
+
+                        <com.laoodao.caididi.common.widget.TagGroup
+                            android:id="@+id/tags"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_underline"
+                            android:padding="@dimen/gap_2x"
+                            app:tgp_horizontal_spacing="@dimen/gap_2x"
+                            app:tgp_vertical_spacing="@dimen/gap_2x" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@color/textWhite"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:id="@+id/ll_ask"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:onClick="@{onClick}"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text='@{item.question + ""}'
+                                    android:textColor="@color/textPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="提问"
+                                    android:textColor="@color/textNearlyGray" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_follow"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:onClick="@{onClick}"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text='@{item.myAttention + ""}'
+                                    android:textColor="@color/textPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="关注"
+                                    android:textColor="@color/textNearlyGray" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_fans"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:onClick="@{onClick}"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text='@{item.attentionMe + ""}'
+                                    android:textColor="@color/textPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="粉丝"
+                                    android:textColor="@color/textNearlyGray" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_answer"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:onClick="@{onClick}"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text='@{item.answerTotal + ""}'
+                                    android:textColor="@color/textPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="回答"
+                                    android:textColor="@color/textNearlyGray" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_f4"
+                        android:paddingBottom="@dimen/gap_2x"
+                        android:paddingLeft="@dimen/gap_3x"
+                        android:paddingTop="@dimen/gap_2x"
+                        android:text="最新动态" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/background"
+                        android:scrollbarStyle="outsideInset" />
+                </LinearLayout>
+            </com.andview.refreshview.XScrollView>
+        </com.andview.refreshview.XRefreshView>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:weightSum="1">
+
+
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/gap_2x"
+                android:src="@mipmap/ic_return" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:text="This is title."
+                android:textColor="@color/textWhite"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </RelativeLayout>
+</layout>

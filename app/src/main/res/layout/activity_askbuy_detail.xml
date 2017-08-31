@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="promo"
+            type="java.util.List" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ezy.widget.view.ZeeBannerView
+                    android:id="@+id/banner"
+                    style="@style/BannerView.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    app:bv_indicatorColor="#88ffffff"
+                    app:bv_indicatorColorSelected="@color/colorAccent"
+                    app:bv_indicatorCornerRadius="4dp"
+                    app:bv_indicatorGap="8dp"
+                    app:bv_indicatorGravity="center"
+                    app:bv_indicatorHeight="8dp"
+                    app:bv_indicatorStyle="round"
+                    app:bv_indicatorVisible="auto"
+                    app:bv_indicatorWidth="8dp"
+                    app:bv_scale="1.0"
+                    app:dataList="@{promo}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/textWhite"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/gap"
+                    android:paddingLeft="@dimen/gap_2x"
+                    android:paddingRight="@dimen/gap_2x">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/textWhite"
+                            android:text="黄玉米"
+                            android:textColor="@color/textDark"
+                            android:textSize="@dimen/sp_9" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1.2元/斤" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap"
+                        android:text="所在地：湖北省黄石市"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_bottom_grey"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/gap">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="截止时间：2015-02-02"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="浏览254"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:gravity="right"
+                            android:text="收藏164"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:background="@drawable/bg_line_top"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/gap_2x">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btn_icon"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/gap_3x"
+                        android:src="@mipmap/ic_launcher"
+                        app:civ_border_color="@color/colorPrimaryDark"
+                        app:civ_border_width="0dp"
+                        app:civ_fill_color="#EEEEEE" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="广东批发市场"
+                                android:textColor="@color/textPrimary"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/gap_4x"
+                                android:text="已发布8条求购信息"
+                                android:textColor="@color/textNearlyGray"
+                                android:textSize="@dimen/sp_6" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="魏经理"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="131888885646/5464561246"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="weiixnsjdf@lsaflj.com"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:background="@color/textWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_bottom_grey"
+                        android:padding="@dimen/gap_2x"
+                        android:text="货品描述"
+                        android:textSize="@dimen/sp_8" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/gap_2x"
+                        android:text="榴莲（学名：Durio zibethinus Murr ），是一种巨型的热带常绿乔木，叶片长圆，顶端较尖，聚伞花序，花色淡黄，果实足球大小，果皮坚实，密生三角形刺，果肉是由假种皮的肉包组成，肉色淡黄，粘性多汁是一种极具经济价值的水果。"
+                        android:textSize="@dimen/sp_7" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

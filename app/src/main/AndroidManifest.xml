@@ -1,0 +1,496 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.laoodao.caididi">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        tools:node="remove" />
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <permission
+        android:name="com.laoodao.caididi.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.laoodao.caididi.permission.C2D_MESSAGE" />
+
+    <permission
+        android:name="com.laoodao.caididi.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signatureOrSystem" />
+
+    <uses-permission android:name="com.laoodao.caididi.permission.MIPUSH_RECEIVE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:name=".CaididiAppcation"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Base.MTheme"
+        tools:replace="android:allowBackup,android:label">
+
+        <activity
+            android:name=".ui.main.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/MTheme.Splash">
+            <intent-filter>
+
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <data android:scheme="growing.01dc89f109753bf4" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".common.app.RouterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.wenda.activity.AnswerDetailActivity"
+            android:label="问题详情"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.wenda.activity.ImgViewPagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.wenda.activity.MyAskActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.widget.imageSelect.view.ImageSelectorActivity"
+            android:label="图片"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.widget.imageSelect.view.ImagePreviewActivity" />
+        <activity android:name=".ui.widget.imageSelect.view.ImageCropActivity" />
+        <activity
+            android:name=".ui.wenda.activity.FollowUserActivity"
+            android:label="关注用户"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.user.RegisterActivity"
+            android:label="注册"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.user.LoginPhoneActivity"
+            android:label="登录"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ChatActivity"
+            android:label="聊天"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.activity.LoginActivity"
+            android:label="用户登录"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.FarmlandDetailActivity"
+            android:label="农田详情"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.widget.citySelector.activity.AreaSelectorActivity"
+            android:label="选择地区"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".ui.my.activity.MyProblemActivity"
+            android:label="我的提问"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.my.activity.FarmlandOperateActivity"
+            android:label="农田操作"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MyCommentActivity"
+            android:label="我的评论"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MyAskAnswerActivity"
+            android:label="我的问答"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MyAnswerActivity"
+            android:label="我的回答"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.WantKnowAnswerActivity"
+            android:label="想知道答案"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ContactsListActivity"
+            android:label="聊天列表"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MyFavoriteActivity"
+            android:label="收藏的问题"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.FollowPeopleActivity"
+            android:label="我关注的人"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.SettingActivity"
+            android:label="设置"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.my.activity.ShengZiActivity"
+            android:label="生资记录"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.wenda.activity.SearchActivity"
+            android:label="搜索"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.UserInfoActivity"
+            android:label="用户资料"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.UpdatePhoneActivity"
+            android:label="修改手机号码"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.NicknameEditActivity"
+            android:label="修改昵称"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.user.GetbackActivity"
+            android:label="忘记密码"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MessageActivity"
+            android:label="消息"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.SignatureEditActivity"
+            android:label="签名"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.im.VoiceCallActivity"
+            android:label="语音"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.im.VideoCallActivity"
+            android:label="视频"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.wenda.activity.FollowCropActivity"
+            android:label="选择作物"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".ui.my.activity.OtherUserInfoActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.UpdatePasswordActivity"
+            android:label="修改密码"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.BindAccountActivity"
+            android:label="账号与密码"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.AboutActivity"
+            android:label="关于菜滴滴"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.FarmlandManagementActivity"
+            android:label="农田管理"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.AddFarmlandActivity"
+            android:label="新建农田"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".ui.my.activity.AddOperationActivity"
+            android:label="新增操作"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <activity
+            android:name=".ui.weather.activity.WeatherActivity"
+            android:label="天气"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".ui.qiugou.activity.DemandDetailActivity"
+            android:label="求购详情"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.qiugou.activity.BuySearchActivity"
+            android:label="搜索"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.nongye.activity.FarmingSearchActivity"
+            android:label="搜索"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.nongye.activity.FarmingDetailActivity"
+            android:label="农业详情"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.activity.VegetablesPriceActivity"
+            android:label="今日菜价"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ExpertSearchActivity"
+            android:label="专家列表搜索"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.activity.VegetableSearchActivity"
+            android:label="菜价搜索"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.widget.citySelector.activity.CitySelectorActivity"
+            android:label="选择城市"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".ui.my.activity.JointLoginActivity"
+            android:label="联合登录"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.BindLoginActivity"
+            android:label="登录绑定"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.user.RegisterAcitivity"
+            android:label="用户注册"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.my.activity.SaleRecordActivity"
+            android:label="结算收款记录"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MyQrcodeActivity"
+            android:label="我的专属二维码"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.AddReserveActivity"
+            android:label="预约服务"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ReserveAfterActivity"
+            android:label="预约订单"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MyUnAnswerActivity"
+            android:label="我的未回答列表"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ReserveActivity"
+            android:label="预约服务"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ReserveDetailActivity"
+            android:label="预约详情"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.EvaluateReserveActivity"
+            android:label="评价预约"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.BiddersActivity"
+            android:label="收购商"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.OrderDetailActivity"
+            android:label="订单详情"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.OperationHistoryActivity"
+            android:label="操作历史"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.GreensRecordActivity"
+            android:label="我的蔬菜记录"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.activity.HomeSearchActivity"
+            android:label="搜索"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.InviteActivity"
+            android:label="邀请朋友"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.MessageDetailActivity"
+            android:label="消息详情"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.InviteListActivity"
+            android:label="邀请朋友列表"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:label="邀请朋友列表"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.activity.ExpertActivity"
+            android:label="专家列表"
+            android:screenOrientation="portrait" />
+
+
+        <!--微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent${APP_ID_QQ}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="${BAIDU_APP_KEY}" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
+        <!-- 配置第三方Receiver -->
+        <receiver
+            android:name=".PushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}" />
+            </intent-filter>
+        </receiver>
+
+
+        <!-- 开机自启动服务 -->
+        <receiver android:name=".receiver.StartServiceReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+        <!-- gcm start -->
+        <receiver
+            android:name="com.hyphenate.chat.EMGCMBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.laoodao.caididi" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.hyphenate.chat.EMGCMListenerService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receiver.GCMPushBroadCast"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.hyphenate.sdk.push" />
+
+                <category android:name="com.laoodao.caididi" />
+            </intent-filter>
+        </receiver>
+        <!-- gcm end -->
+
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1179170811178958#caididi" />
+        <!-- 声明SDK所需的service SDK核心功能-->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+
+    </application>
+
+</manifest>

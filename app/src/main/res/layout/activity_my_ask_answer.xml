@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="logininfo"
+            type="com.laoodao.caididi.retrofit.user.LoginInfo" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            android:id="@+id/ll_follow_crops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:background="@color/textWhite"
+            android:onClick="@{listener}"
+            android:orientation="horizontal"
+            android:padding="@dimen/gap_3x">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_crop_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/gap"
+                    android:text='@{TextUtils.isEmpty(logininfo.attentionCrops+"")?"-":logininfo.attentionCrops+""}'
+                    tools:text="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我关注的作物" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <LinearLayout
+                android:id="@+id/ll_follow_my"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_my_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/gap"
+                    android:text='@{TextUtils.isEmpty(logininfo.myAttention+"")?"-":logininfo.myAttention+""}'
+                    tools:text="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我关注的人" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <LinearLayout
+                android:id="@+id/ll_follow_people"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_follow_my"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/gap"
+                    android:text='@{TextUtils.isEmpty(logininfo.attentionMe+"")?"-":logininfo.attentionMe+""}'
+                    tools:text="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关注我的人" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/UI.Group"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:background="@color/textWhite">
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/my_problem"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingIcon="@mipmap/ic_my_ask"
+                app:settingTitle="我的提问" />
+
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/my_answer"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingIcon="@mipmap/ic_my_answer"
+                app:settingTitle="我的回答" />
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/my_comments"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingIcon="@mipmap/ic_my_comments"
+                app:settingTitle="我的评论" />
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/want_know_answer"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingIcon="@mipmap/ic_want_know_answer"
+                app:settingTitle="想知道答案" />
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/collection_problem"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingIcon="@mipmap/ic_my_collection"
+                app:settingTitle="收藏的问题" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

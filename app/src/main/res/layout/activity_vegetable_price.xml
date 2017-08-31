@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="OnClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            android:id="@+id/tool_menu"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/fl_title"
+            android:layout_marginTop="@dimen/gap"
+            android:background="@drawable/bg_white_underline"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/btn_province"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow"
+                android:gravity="center"
+                android:onClick="@{OnClick}"
+                android:paddingRight="@dimen/gap_2x"
+                android:text="地区"
+                android:textColor="@color/item_tab_nearly"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/border"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/fl_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{OnClick}">
+
+                <TextView
+                    android:id="@+id/btn_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/gap"
+                    android:drawableRight="@drawable/ic_arrow"
+                    android:gravity="center"
+
+                    android:text="日期"
+                    android:textColor="@color/item_tab_nearly" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <FrameLayout
+                android:id="@+id/fl_category"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{OnClick}">
+
+                <TextView
+                    android:id="@+id/btn_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/gap"
+                    android:drawableRight="@drawable/ic_arrow"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/gap_3x"
+                    android:paddingRight="@dimen/gap_3x"
+                    android:text="品类"
+                    android:textColor="@color/item_tab_nearly" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+        <com.laoodao.caididi.ui.widget.LoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager" />
+        </com.laoodao.caididi.ui.widget.LoadingView>
+
+
+    </LinearLayout>
+</layout>

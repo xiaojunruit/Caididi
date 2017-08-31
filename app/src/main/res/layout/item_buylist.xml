@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.BuyListInfo"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+
+        android:paddingLeft="@dimen/gap_2x"
+        android:paddingTop="@dimen/gap_2x">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/gap_2x">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.title}"
+                android:textColor="@color/textDark"
+                android:textSize="@dimen/sp_8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                app:html='@{@string/price(item.price,item.unitName)}' />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap"
+            android:layout_marginTop="@dimen/gap"
+            android:text="@{item.content}"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp_7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:html='@{@string/address(item.local)}'
+            android:textSize="@dimen/sp_6" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:background="@drawable/bg_line_top"
+            android:paddingBottom="@dimen/gap_2x"
+            android:paddingTop="@dimen/gap_2x">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_time"
+                android:drawablePadding="@dimen/gap"
+                tools:text="截止时间：2017-05-15"
+                app:html='@{@string/expire_time(item.expireTime)}'
+                android:textSize="@dimen/sp_6" />
+
+
+            <TextView
+                android:id="@+id/txt_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/gap_2x"
+                app:html='@{@string/collect_total(item.collectTotal)}'
+                tools:text="收藏 162" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/gap_2x"
+                android:layout_toLeftOf="@+id/txt_collect"
+                app:html='@{@string/read_count(item.viewTotal)}'
+                tools:text="浏览 162" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

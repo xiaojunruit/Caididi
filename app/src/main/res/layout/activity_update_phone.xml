@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_f4"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <FrameLayout style="@style/UI.Group">
+
+            <ezy.widget.view.LabelEditText
+                android:id="@+id/txt_phone"
+                style="@style/Form.EditText.Label"
+                android:hint="请输入要绑定的手机号码"
+                android:inputType="phone"
+                app:labelText="手机号" />
+
+            <ImageView
+                android:id="@+id/img_close_phone"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/gap_4x"
+                android:visibility="gone"
+
+                android:background="@mipmap/ic_launcher" />
+        </FrameLayout>
+
+        <FrameLayout style="@style/UI.Group">
+
+            <ezy.widget.view.LabelEditText
+                android:id="@+id/txt_code"
+                style="@style/Form.EditText.Label"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                app:labelText="验证码" />
+
+            <TextView
+                android:id="@+id/btn_send_code"
+                style="@style/Button.Round.AuthCode"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/gap_4x"
+                android:background="@drawable/bg_white_round_accent"
+                android:text="发送验证码" />
+
+            <ImageView
+                android:id="@+id/img_close_code"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:background="@mipmap/ic_launcher" />
+        </FrameLayout>
+    </LinearLayout>
+</layout>

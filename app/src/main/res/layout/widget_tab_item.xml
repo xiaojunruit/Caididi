@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingTop="@dimen/gap">
+
+
+    <ezy.widget.view.IconTextButton
+        android:id="@+id/button"
+        style="@style/Button.TabItem"
+        android:text="信息中心"
+        app:iconDrawable="@mipmap/icon_found_selected" />
+
+    <TextView
+        android:id="@+id/txt_count"
+        android:layout_width="@dimen/gap_4x"
+        android:layout_height="@dimen/gap_4x"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="-15dp"
+        android:background="@drawable/bg_radius_red"
+        android:gravity="center"
+        android:text="10"
+        android:textColor="@color/textWhite"
+        android:textSize="@dimen/sp_5"
+        android:visibility="gone" />
+
+</FrameLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="experList"
+            type="com.laoodao.caididi.retrofit.user.ExperList" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="@color/textWhite"
+        android:orientation="horizontal"
+        android:padding="@dimen/gap_3x">
+
+        <com.laoodao.caididi.ui.widget.RoundImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@{experList.memberAvatar}"
+            android:visibility="@{TextUtils.isEmpty(experList.memberAvatar)?View.GONE:View.VISIBLE}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap_2x"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{experList.truename}"
+                    android:textColor="@color/textClick"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="李云龙" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="向他咨询"
+                    android:textColor="@color/colorAccent" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:text='@{"擅长领域："+experList.special}'
+                android:textSize="@dimen/sp_5"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="擅长领域：生物防治技术，植保技术" />
+
+            <LinearLayout
+                android:id="@+id/ll_crops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="擅长作物："
+                    android:textSize="@dimen/sp_4" />
+
+                <com.laoodao.caididi.ui.widget.TagCropGroup
+                    android:id="@+id/tcg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tgp_horizontal_spacing="@dimen/gap"
+                    app:tgp_vertical_spacing="@dimen/gap" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:text="@{experList.introduce}"
+                android:textSize="@dimen/sp_5"
+                tools:text="30年的生物防治经验，10年的保值技术" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

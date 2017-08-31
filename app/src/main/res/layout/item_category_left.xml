@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/bg_under_dotted_line"
+        android:paddingBottom="@dimen/gap_4x"
+        android:paddingTop="@dimen/gap_4x"
+        android:duplicateParentState="true"
+        android:text="ssssss" />
+</FrameLayout>

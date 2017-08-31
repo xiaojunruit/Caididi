@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.Dynamic" />
+
+        <import type="com.laoodao.caididi.R" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/gap_2x"
+        android:background="@color/textWhite"
+        android:orientation="vertical"
+        android:padding="@dimen/gap_3x">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:singleLine="true"
+                android:text="@{item.nickname}"
+                android:textColor="@color/textPrimary"
+                android:textSize="15sp"
+                tools:text="痴线阿斯蒂芬" />
+
+            <TextView
+                android:id="@+id/txt_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@{item.getTypeName()}"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="回答了提问" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{item.addTime}"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="今天14：:02" />
+
+            <TextView
+                android:id="@id/cl_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/gap_3x"
+                android:drawableLeft="@mipmap/ic_positioning"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:visibility="@{TextUtils.isEmpty(item.local)? View.GONE:View.VISIBLE}"
+                android:text="@{item.local}"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="aaa" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.notice}"
+            android:textColor="@color/textDark"
+            android:textSize="17sp"
+            tools:text="定制拉伸的开发就拉上课的积分" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_radius_bg"
+            android:orientation="horizontal">
+
+            <com.laoodao.caididi.ui.widget.RoundImageView
+                android:id="@+id/roundImageView"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="fitXY"
+                android:src="@{item.img}"
+                app:placeholder="@{R.mipmap.p430}"
+                android:visibility="@{TextUtils.isEmpty(item.img)? View.GONE:View.VISIBLE}"
+                app:riv_borderRadius="4dp"
+                app:riv_type="roundAll" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/gap">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:gravity="bottom"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@{item.title}"
+                    android:textColor="@color/textDark"
+                    android:textSize="15sp"
+                    tools:text="下黄瓜用什么肥料好？" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{item.content}"
+                    android:textColor="@color/textPrimary"
+                    tools:text="d的骄傲啥地方撒旦法萨芬盛大发售的发生法撒旦法是否大法师打发士大夫撒旦飞洒发送方三房" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

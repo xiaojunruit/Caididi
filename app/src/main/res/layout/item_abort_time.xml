@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.AbortTime" />
+    </data>
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_white_bottom_grey"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/gap_3x"
+        android:text="@{item.name}"
+        tools:text="半个月" />
+</layout>

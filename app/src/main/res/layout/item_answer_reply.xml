@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.AnswerReply" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textWhite"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/gap_2x"
+        android:paddingRight="@dimen/gap_2x"
+        android:paddingTop="@dimen/gap_2x">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@id/cl_avatar"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:src="@{item.memberAvatar}"
+                android:onClick="@{listener}"
+                app:civ_border_color="@color/colorPrimaryDark"
+                app:civ_border_width="0dp"
+                app:civ_fill_color="#EEEEEE"
+
+                tools:src="@mipmap/default_user_portrait" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/gap_2x"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:textColor="@color/textPrimary"
+                    android:text="@{item.memberNick}"
+                    tools:text="小哥" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.addTime}"
+                        android:textSize="@dimen/sp_5"
+                        android:textColor="@color/textNearlyGray"
+                        tools:text="2015-09-12 08:03:30" />
+
+                    <TextView
+                        android:id="@id/cl_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/gap_3x"
+                        android:drawableLeft="@mipmap/ic_positioning"
+                        android:drawablePadding="3dp"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@{item.local}"
+                        android:textColor="@color/textNearlyGray"
+                        android:textSize="@dimen/sp_5"
+                        android:visibility='@{TextUtils.isEmpty(item.local)?View.GONE:View.VISIBLE}' />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/textWhite"
+            android:orientation="vertical"
+            android:paddingLeft="55dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.content}"
+                android:textColor="@color/textDark"
+                android:textSize="17sp"
+                tools:text="学渣可恢复健康和恐惧家里快圣诞节福利来发送附件里撒风景了" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/gap_2x">
+
+                <TextView
+                    android:id="@+id/txt_names"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:html='@{item.praiseName}'
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6"
+                    android:singleLine="true"
+                    android:visibility="@{item.praiseNum==0?View.GONE:View.VISIBLE}"
+                    tools:text="150****8558、136****0250、136****0250" />
+
+                <TextView
+                    android:id="@+id/txt_names_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6"
+                    android:maxLines="1"
+                    android:visibility="@{item.praiseNum==0?View.GONE:View.VISIBLE}"
+                    android:text='@{item.praiseNum>1?"等"+item.praiseNum+"人已赞":item.praiseNum+"人已赞"}'
+                    tools:text="等5人已赞" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/gap"
+                android:paddingTop="@dimen/gap">
+
+                <TextView
+                    android:id="@+id/tv_comments1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/ic_answer"
+                    android:drawablePadding="@dimen/gap"
+                    android:onClick="@{listener}"
+                    android:text="评论"
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6" />
+
+                <ImageView
+                    android:id="@+id/img_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/gap"
+                    android:gravity="right"
+                    android:onClick="@{listener}"
+                    android:padding="@dimen/gap"
+                    android:src="@mipmap/ic_more" />
+            </LinearLayout>
+
+            <com.laoodao.caididi.ui.widget.commentList.CommentListView
+                android:id="@+id/commentList"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/bg_reply_bubbles"
+                android:orientation="vertical" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:background="@color/background_f4" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

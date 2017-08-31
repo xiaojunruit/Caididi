@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.Notice" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_2x"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_2x">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_radius_e7"
+                android:paddingBottom="@dimen/gap"
+                android:paddingLeft="@dimen/gap_3x"
+                android:paddingRight="@dimen/gap_3x"
+                android:paddingTop="@dimen/gap"
+                android:text="@{item.time}"
+                android:textColor="@color/textPrimary" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="@dimen/gap_3x"
+            android:layout_marginRight="@dimen/gap_3x"
+            android:background="@drawable/bg_radius_white"
+            android:elevation="1dp"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/gap_2x"
+            android:paddingLeft="@dimen/gap_3x"
+            android:paddingRight="@dimen/gap_3x"
+            android:paddingTop="@dimen/gap_2x">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/gap"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{item.title}"
+                    android:textColor="@color/textDark"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="埃里克森的减肥了圣诞节疯狂了坚实的离开" />
+
+                <TextView
+                    android:id="@+id/tv_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="未读"
+                    android:visibility='@{item.status==2?View.VISIBLE:View.GONE}'
+                    android:textColor="@color/green" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="@dimen/gap_2x"
+                    android:scaleType="centerCrop"
+                    android:src="@{item.image}"
+                    android:visibility="@{TextUtils.isEmpty(item.image)?View.GONE:View.VISIBLE}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="@{item.content}"
+                    android:textColor="@color/textDark"
+                    tools:text="阿斯兰的房间里着急口令就暗示的离开房间撒旦立刻减旦立刻减旦立刻减旦立刻减肥" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:src="@{item.icon}" />-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="@dimen/gap_2x"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/title"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_toLeftOf="@+id/time"-->
+        <!--android:ellipsize="end"-->
+        <!--android:singleLine="true"-->
+        <!--android:text="@{item.title}"-->
+        <!--tools:text="每日推荐"-->
+        <!--android:textColor="@color/textPrimary" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/time"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginLeft="@dimen/gap_2x"-->
+        <!--android:ellipsize="end"-->
+        <!--android:singleLine="true"-->
+        <!--tools:text="10:00"-->
+        <!--android:text="@{item.time}"-->
+        <!--android:textColor="@color/textNearlyGray" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:ellipsize="end"-->
+        <!--android:singleLine="true"-->
+        <!--android:text="@{item.content}"-->
+        <!--tools:text="梵蒂冈梵蒂冈梵蒂冈"-->
+        <!--android:textColor="@color/textNearlyGray" />-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+</layout>

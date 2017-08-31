@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.FarmingDetail" />
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/textWhite"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <com.laoodao.caididi.ui.widget.LoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.andview.refreshview.XRefreshView
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.andview.refreshview.XScrollView
+                    android:id="@+id/scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/gap_3x"
+                            android:paddingRight="@dimen/gap_3x"
+                            android:paddingTop="24dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{item.title}"
+                                android:textColor="@color/textDark"
+                                android:textSize="22sp"
+                                android:lineSpacingExtra="9dp"
+                                tools:text="云南弄茶叶技术体系杂交玉米肠高产纪录这是标题啊啊啊啊啊" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/gap_3x"
+                                android:layout_marginBottom="@dimen/gap_4x"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/gap_3x"
+                                    android:text="@{item.source}"
+                                    android:textColor="@color/textNearlyGray"
+                                    android:textSize="@dimen/sp_6"
+                                    android:visibility="@{TextUtils.isEmpty(item.source)?View.GONE:View.VISIBLE}"
+                                    tools:text="中国农业信息网" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/gap_3x"
+                                    android:drawableLeft="@mipmap/ic_see"
+                                    android:drawablePadding="@dimen/gap"
+                                    android:textColor="@color/textNearlyGray"
+                                    android:textSize="@dimen/sp_6"
+                                    app:html="@{@string/read_count(item.viewCount)}"
+                                    tools:text="浏览1560" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{item.addTime}"
+                                    android:gravity="right"
+                                    android:textColor="@color/textNearlyGray"
+                                    android:textSize="@dimen/sp_6"
+                                    tools:text="02-16- 16:10" />
+
+                            </LinearLayout>
+
+
+                            <com.laoodao.caididi.ui.widget.ExpandTextView
+                                android:id="@+id/txt_expand"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:etv_full_img="@mipmap/ic_more_arraw"
+                                app:etv_text_color="@color/textDark"
+                                app:etv_max_lines="14" />
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/gap_4x">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:layout_centerVertical="true"
+                                    android:background="@color/border" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:background="@color/textWhite"
+                                    android:paddingLeft="@dimen/gap"
+                                    android:paddingRight="@dimen/gap"
+                                    android:text="分享到" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_radius_white"
+                                android:orientation="horizontal"
+                                android:paddingBottom="@dimen/gap_4x"
+                                android:paddingLeft="@dimen/gap_2x"
+                                android:paddingRight="@dimen/gap_2x"
+                                android:paddingTop="@dimen/gap_4x">
+
+                                <ezy.widget.view.IconTextButton
+                                    android:id="@+id/btn_wx"
+                                    style="@style/Button.Share"
+                                    android:onClick="@{listener}"
+                                    android:text="微信"
+                                    app:iconDrawable="@mipmap/ic_wx" />
+
+                                <ezy.widget.view.IconTextButton
+                                    android:id="@+id/btn_friend"
+                                    style="@style/Button.Share"
+                                    android:onClick="@{listener}"
+                                    android:text="朋友圈"
+                                    app:iconDrawable="@mipmap/ic_friend" />
+
+                                <ezy.widget.view.IconTextButton
+                                    android:id="@+id/btn_qq"
+                                    style="@style/Button.Share"
+                                    android:onClick="@{listener}"
+                                    android:text="QQ"
+                                    app:iconDrawable="@mipmap/ic_qq" />
+
+                                <ezy.widget.view.IconTextButton
+                                    android:id="@+id/btn_qzone"
+                                    style="@style/Button.Share"
+                                    android:onClick="@{listener}"
+                                    android:text="QQ空间"
+                                    app:iconDrawable="@mipmap/ic_qzone" />
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:layout_alignParentBottom="true"
+                                    android:background="@color/border" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_white_bottom_accent"
+                                    android:paddingBottom="@dimen/gap"
+                                    android:textColor="@color/textDark"
+                                    android:text="相关推荐" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                </com.andview.refreshview.XScrollView>
+            </com.andview.refreshview.XRefreshView>
+        </com.laoodao.caididi.ui.widget.LoadingView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.ReserveList" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_2x"
+        android:background="@drawable/bg_white_bottom_grey"
+        android:orientation="vertical"
+        android:paddingBottom="12.5dp"
+        android:paddingLeft="@dimen/gap_3x"
+        android:paddingRight="@dimen/gap_3x"
+        android:paddingTop="@dimen/gap_3x">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:html="@{@string/user_name_dark(item.name)}"
+                tools:text="姓名：啊啊啊啊" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:html="@{@string/mobile_dark(item.mobile)}"
+                tools:text="电话：1564616465412" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_3x"
+            android:background="@drawable/bg_radius_f8"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="@dimen/gap_3x"
+            android:text="@{item.remark}"
+            tools:text="bxcbcxbcbcxbcbxcbxcbcbxcbcxbcbcxbcbxcbxcbcbxcbcxbcbcxbcbxcbxcbcbxcbcxbcbcxbcbxcbxcbcb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12.5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@{@string/release_time(item.addTime)}"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="发布时间：2017-02-20" />
+
+            <TextView
+                android:id="@+id/txt_state"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@{item.stateDesc}"
+                tools:text="已完成" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

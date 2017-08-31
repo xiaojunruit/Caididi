@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.DemandDetail" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ezy.widget.view.ZeeBannerView
+                    android:id="@+id/banner"
+                    style="@style/BannerView.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    app:bv_indicatorColor="#88ffffff"
+                    app:bv_indicatorColorSelected="@color/colorAccent"
+                    app:bv_indicatorCornerRadius="4dp"
+                    app:bv_indicatorGap="8dp"
+                    app:bv_indicatorGravity="center"
+                    app:bv_indicatorHeight="8dp"
+                    app:bv_indicatorStyle="round"
+                    app:bv_indicatorVisible="auto"
+                    app:bv_indicatorWidth="8dp"
+                    app:bv_scale="1.0"
+                    app:dataList="@{item.imgArr}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/textWhite"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/gap"
+                    android:paddingLeft="@dimen/gap_2x"
+                    android:paddingRight="@dimen/gap_2x">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/textWhite"
+                            android:text="@{item.title}"
+                            android:textColor="@color/textDark"
+                            android:textSize="@dimen/sp_10"
+                            tools:text="黄玉米" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:html="@{@string/price(item.price,item.unitName)}"
+                            tools:text="1.2" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap"
+                        android:text='@{"所在地："+item.local}'
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        tools:text="所在地：湖北省黄石市" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_bottom_grey"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/gap_2x"
+                        android:paddingTop="@dimen/gap">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:drawableLeft="@mipmap/ic_abort_time"
+                            android:drawablePadding="@dimen/gap"
+                            android:text="截止时间：2015-02-02"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            app:html="@{@string/expire_time(item.expireTime)}" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@mipmap/ic_see"
+                            android:drawablePadding="@dimen/gap"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            app:html="@{@string/read_count(item.viewTotal)}"
+                            tools:text="浏览254" />
+                        <CheckBox
+                            android:id="@+id/cb_collection"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/gap_3x"
+                            android:button="@null"
+                            android:drawablePadding="@dimen/gap"
+                            android:drawableLeft="@drawable/collection_checkbox_style"
+                            app:html="@{@string/collect_total(item.collectTotal)}"
+                            android:textColor="@color/textNearlyGray"
+                            android:checked="@{item.isCollect}"
+                            android:textSize="@dimen/sp_6" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/textWhite"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/gap_2x">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btn_icon"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/gap_3x"
+                        android:src="@{item.memberAvatar}"
+                        app:civ_border_color="@color/colorPrimaryDark"
+                        app:civ_border_width="0dp"
+                        app:civ_fill_color="#EEEEEE" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{item.memberName}"
+                                android:textColor="@color/textPrimary"
+                                android:textSize="15sp"
+                                tools:text="广东批发市场" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/gap_4x"
+                                android:textColor="@color/textNearlyGray"
+                                android:textSize="@dimen/sp_6"
+                                app:html="@{@string/release_msg(item.demNum)}"
+                                tools:text="已发布8条求购信息" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@{item.contacts}"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            tools:text="魏经理" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@{item.mobile}"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            tools:text="131888885646/5464561246" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@{item.email}"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            tools:text="weiixnsjdf@lsaflj.com" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:background="@color/textWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_bottom_grey"
+                        android:padding="@dimen/gap_2x"
+                        android:text="货品描述"
+                        android:textSize="@dimen/sp_8" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/gap_2x"
+                        android:text="@{item.content}"
+                        android:textSize="@dimen/sp_7"
+                        tools:text="榴莲（学名：Durio zibethinus Murr ），是一种巨型的热带常绿乔木，叶片长圆，顶端较尖，聚伞花序，花色淡黄，果实足球大小，果皮坚实，密生三角形刺，果肉是由假种皮的肉包组成，肉色淡黄，粘性多汁是一种极具经济价值的水果。" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:id="@+id/txt_chat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/textAccentOrange"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:text="私聊询价"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_8" />
+
+            <TextView
+                android:id="@+id/txt_callphone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:text="打电话"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_8" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

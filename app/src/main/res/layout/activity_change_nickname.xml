@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_f4"
+        android:orientation="vertical"
+        >
+        <include layout="@layout/widget_toolbar"/>
+
+        <FrameLayout style="@style/UI.Group">
+            <EditText
+                android:id="@+id/txt_nickname"
+                style="@style/Form.EditText"
+                android:maxLength="20"
+                android:hint="请输入昵称"/>
+        </FrameLayout>
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_vertical|left"-->
+            <!--android:padding="@dimen/gap_3x"-->
+            <!--android:text="4-20个字符，可由英文、数字、“_”、“-”组成"-->
+            <!--android:textColor="@color/textMinor"-->
+            <!--android:textSize="@dimen/sp_7"/>-->
+    </LinearLayout>
+</layout>

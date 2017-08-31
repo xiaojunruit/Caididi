@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.AnswerDetail"/>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.laoodao.caididi.common.widget.CommentsLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        app:cl_address="@{item.local}"
+                        app:cl_avatar="@mipmap/ic_launcher"
+                        app:cl_nick_name="@{item.memberName}"
+                        app:cl_read_count='@{item.readCount+"人阅读"}'
+                        app:cl_time="@{item.addTime}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/textWhite"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/gap_3x"
+                        android:paddingRight="@dimen/gap_2x">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/gap"
+                            tools:text="这是狗头"
+                            android:text="@{item.title}"
+                            android:textColor="@color/textDark"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/gap_2x"
+                            tools:text="这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容"
+                            android:text="@{item.content}"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_8" />
+
+                        <com.laoodao.caididi.common.widget.TagGroup
+                            android:id="@+id/tags"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtsearch"
+                            android:layout_marginBottom="@dimen/gap_2x"
+                            android:padding="@dimen/gap_2x"
+                            app:tgp_horizontal_spacing="@dimen/gap_2x"
+                            app:tgp_vertical_spacing="@dimen/gap_2x"/>
+
+                        <LinearLayout
+                            android:id="@+id/content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/gap_2x"
+                            android:gravity="center_horizontal"
+                            tools:text="盲僧，德玛，EZ等想知道答案"
+                            android:text='@{item.names+"等"+item.namesTotal+"想知道答案"}'
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6" />
+
+                        <TextView
+                            android:id="@+id/txt_know"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/toolbar_height"
+                            android:layout_marginBottom="@dimen/gap_3x"
+                            android:layout_marginTop="@dimen/gap_2x"
+                            android:background="@drawable/bg_radius_accent"
+                            android:gravity="center"
+                            android:text="我也想知道答案"
+                            android:onClick="@{listener}"
+                            android:textColor="@color/textWhite" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/gap_3x"
+                        tools:text="12人回复"
+                        android:text='@{item.answerTotal+"人回复"}'/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/textWhite" />
+                </LinearLayout>
+
+            </ScrollView>
+
+            <LinearLayout
+                  android:id="@+id/ll_reply"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                android:background="@color/textWhite"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/gap_2x"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_round_grey_20"
+                    android:hint="我来说两句"
+                    android:paddingLeft="@dimen/gap_2x"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6" />
+
+                <com.laoodao.caididi.ui.widget.DrawableTextView
+                    android:id="@+id/tv_collection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/ic_collection_no"
+                    android:drawablePadding="@dimen/gap"
+                    android:onClick="@{listener}"
+                    android:text="收藏"
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_7" />
+
+                <com.laoodao.caididi.ui.widget.DrawableTextView
+                    android:id="@+id/tv_share"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/ic_share"
+                    android:drawablePadding="@dimen/gap"
+                    android:onClick="@{listener}"
+                    android:text="分享"
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_7" />
+            </LinearLayout>
+        </LinearLayout>
+
+</layout>

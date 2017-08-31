@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.Home" />
+
+        <variable
+            name="promo"
+            type="java.util.List" />
+
+        <variable
+            name="topPromo"
+            type="java.util.List" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/loca"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="@dimen/gap"
+                android:drawableRight="@mipmap/ic_more_white"
+                android:gravity="center"
+                android:maxWidth="120dp"
+                android:onClick="@{listener}"
+                android:paddingLeft="@dimen/gap_2x"
+                android:singleLine="true"
+                android:text="@{item.local}"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_8" />
+
+            <ImageView
+                android:id="@+id/txt_title"
+                android:layout_width="70dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_caididi" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/btn_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginLeft="@dimen/gap"
+                    android:onClick="@{listener}"
+                    android:padding="@dimen/gap">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/icon_message" />
+
+                    <com.flyco.tablayout.widget.MsgView
+                        android:id="@+id/msg_dot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="-8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_toRightOf="@+id/icon"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textSize="11.5sp"
+                        app:mv_backgroundColor="#FD481F"
+                        app:mv_isRadiusHalfHeight="true"
+                        app:mv_strokeColor="#34D37F"
+                        app:mv_strokeWidth="1dp" />
+                </RelativeLayout>
+
+
+                <!--<ImageView-->
+                <!--android:id="@+id/btn_message"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:onClick="@{listener}"-->
+                <!--android:padding="@dimen/gap"-->
+                <!--android:src="@mipmap/icon_message" />-->
+
+
+                <ImageView
+                    android:id="@+id/btn_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/gap_2x"
+                    android:onClick="@{listener}"
+                    android:padding="@dimen/gap"
+                    android:src="@mipmap/ic_search_white" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.laoodao.caididi.ui.widget.LoadingView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.andview.refreshview.XScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/background"
+                    android:orientation="vertical">
+
+                    <ezy.widget.view.ZeeBannerView
+                        android:id="@+id/banner"
+                        style="@style/BannerView.Normal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:bv_indicatorColor="#88ffffff"
+                        app:bv_indicatorColorSelected="#882AB80E"
+                        app:bv_indicatorCornerRadius="4dp"
+                        app:bv_indicatorGap="8dp"
+                        app:bv_indicatorGravity="center"
+                        app:bv_indicatorHeight="8dp"
+                        app:bv_indicatorStyle="round"
+                        app:bv_indicatorVisible="auto"
+                        app:bv_indicatorWidth="8dp"
+                        app:bv_scale="0.375"
+                        app:dataList="@{item.imgArr}" />
+
+                    <LinearLayout
+                        android:id="@+id/btn_weather"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:background="@drawable/bg_white_bottom_grey"
+                        android:onClick="@{listener}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/gap_2x">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@mipmap/icon_loc"
+                            android:drawablePadding="@dimen/gap"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@{item.local}"
+                            android:textColor="@color/textDark"
+                            android:textSize="@dimen/sp_13"
+                            tools:text="东莞市" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@drawable/bg_blue_round">
+
+                                    <ImageView
+                                        android:layout_width="23dp"
+                                        android:layout_height="20dp"
+                                        android:padding="2dp"
+                                        app:weatherIcon="@{item.weatherId.fa}"
+                                        tools:src="@mipmap/d_cloudy" />
+                                </FrameLayout>
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/gap_2x"
+                                    android:layout_weight="1"
+                                    android:drawablePadding="@dimen/gap"
+                                    android:text="@{item.temperature}"
+                                    android:textColor="@color/textDark"
+                                    android:textSize="@dimen/sp_13"
+                                    tools:text="12~17°" />
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/gap"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:textColor="@color/textDark"
+                                android:textSize="@dimen/sp_13"
+                                app:html="@{@string/humidity(item.humidity)}"
+                                tools:text="湿度56%" />
+
+                            <ImageView
+                                android:id="@+id/img_city_arraw"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:src="@mipmap/ic_city_arraw" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.laoodao.caididi.ui.widget.ExpandLayout
+                        android:id="@+id/expand_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/textWhite"
+                            android:orientation="vertical"
+                            android:padding="@dimen/gap_2x">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{item.date}"
+                                android:textColor="@color/textDark"
+                                android:textSize="@dimen/sp_6"
+                                tools:text="2017/2/17 星期五  农历  正月二十五" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/gap_2x"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.9"
+                                    android:drawableLeft="@mipmap/icon_loc_black"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="2dp"
+                                    android:singleLine="true"
+                                    android:text="@{item.local}"
+                                    android:textColor="@color/textDark"
+                                    android:textSize="@dimen/sp_5"
+                                    tools:text="广东东莞市" />
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.2"
+                                    android:orientation="horizontal">
+
+
+                                    <ImageView
+                                        android:id="@+id/imageView"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:padding="2dp"
+                                        app:weatherIcon="@{item.weatherId.fa}"
+                                        tools:src="@mipmap/d_sunny" />
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/gap_2x"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:textColor="@color/textDark"
+                                            android:textSize="@dimen/sp_5"
+                                            app:html="@{@string/home_weather(item.weather,item.temperature)}"
+                                            tools:text="晴15~23°晴15~23°晴15~23°" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/gap_2x"
+                                            android:textColor="@color/textDark"
+                                            android:textSize="@dimen/sp_5"
+                                            app:html="@{@string/humidity(item.humidity)}"
+                                            tools:text="湿度56%" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/btn_more_weather"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:drawableRight="@mipmap/ic_city_arraw"
+                                    android:gravity="right|center_vertical"
+                                    android:onClick="@{listener}"
+                                    android:text="查看未来七天"
+                                    android:textColor="@color/textDark"
+                                    android:textSize="@dimen/sp_5" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.laoodao.caididi.ui.widget.ExpandLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/label_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:background="@color/textWhite"
+                        android:paddingLeft="@dimen/gap_2x"
+                        android:paddingRight="@dimen/gap_2x" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/gap_2x">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/grid_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_marginTop="@dimen/gap_2x"-->
+                            <!--android:background="@color/textWhite"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<com.laoodao.caididi.ui.widget.TextImageButton-->
+                                <!--android:id="@+id/btn_today_price"-->
+                                <!--android:layout_width="0dp"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginBottom="@dimen/gap_2x"-->
+                                <!--android:layout_marginTop="@dimen/gap_2x"-->
+                                <!--android:layout_weight="1"-->
+                                <!--android:onClick="@{listener}"-->
+                                <!--app:ttb_image="@mipmap/btn_home_search"-->
+                                <!--app:ttb_imageSize="35dp"-->
+                                <!--app:ttb_text="查询今日菜价" />-->
+
+                            <!--<View-->
+                                <!--android:layout_width="1px"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:background="@color/divider_color" />-->
+
+                            <!--<com.laoodao.caididi.ui.widget.TextImageButton-->
+                                <!--android:id="@+id/btn_q"-->
+                                <!--android:layout_width="0dp"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginBottom="@dimen/gap_2x"-->
+                                <!--android:layout_marginTop="@dimen/gap_2x"-->
+                                <!--android:layout_weight="1"-->
+                                <!--android:onClick="@{listener}"-->
+                                <!--app:ttb_image="@mipmap/btn_home_q"-->
+                                <!--app:ttb_imageSize="35dp"-->
+                                <!--app:ttb_text="快速提问" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="1px"-->
+                            <!--android:background="@color/divider_color" />-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:background="@color/textWhite"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<com.laoodao.caididi.ui.widget.TextImageButton-->
+                                <!--android:id="@+id/btn_expert"-->
+                                <!--android:layout_width="0dp"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:layout_weight="1"-->
+                                <!--android:onClick="@{listener}"-->
+                                <!--android:paddingRight="@dimen/gap_6x"-->
+                                <!--app:ttb_image="@mipmap/ic_expert"-->
+                                <!--app:ttb_imageSize="35dp"-->
+                                <!--app:ttb_text="专家在线" />-->
+
+                            <!--<View-->
+                                <!--android:layout_width="1px"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:background="@color/divider_color" />-->
+
+                            <!--<com.laoodao.caididi.ui.widget.TextImageButton-->
+                                <!--android:layout_width="0dp"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:layout_marginBottom="@dimen/gap_2x"-->
+                                <!--android:layout_marginTop="@dimen/gap_2x"-->
+                                <!--android:layout_weight="1"-->
+                                <!--android:onClick="@{listener}"-->
+                                <!--app:ttb_image="@mipmap/ic_soil"-->
+                                <!--app:ttb_imageSize="35dp"-->
+                                <!--app:ttb_text="土壤查询" />-->
+
+                        <!--</LinearLayout>-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/gap_2x"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:background="@color/textWhite"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_white_bottom_grey"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="@dimen/gap_2x"
+                                android:text="热门资讯"
+                                android:textColor="@color/textDark"
+                                android:textSize="@dimen/sp_8" />
+                        </LinearLayout>
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layoutManager="LinearLayoutManager" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.andview.refreshview.XScrollView>
+        </com.andview.refreshview.XRefreshView>
+        </com.laoodao.caididi.ui.widget.LoadingView>
+    </LinearLayout>
+</layout>

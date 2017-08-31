@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener"/>
+        <import type="android.view.View"/>
+        <variable
+            name="mark"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:text="关联已有菜滴滴帐号"
+                android:textColor="@color/textPrimary" />
+
+            <EditText
+                android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/sp_edit_default"
+                android:paddingLeft="10dp"
+                android:hint="请输入已验证手机"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp" />
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/et_code"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_weight="1.2"-->
+                    <!--android:background="@drawable/sp_edit_default"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:text="输入短信验证码"-->
+                    <!--android:textColor="@color/textPrimary"-->
+                    <!--android:textSize="14sp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/btn_get_code"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/sp_edit_green"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="获取短信信息"-->
+                    <!--android:textColor="@color/colorAccent"-->
+                    <!--android:textSize="14sp" />-->
+            <!--</LinearLayout>-->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/sp_edit_default"
+                    android:hint="输入密码"
+                    android:maxLength="12"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="40dp"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+
+                <CheckBox
+                    android:id="@+id/checkbox_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@null"
+                    android:layout_marginRight="10dp"
+                    android:onClick="@{listener}"
+                    android:button="@drawable/toggle_btn"/>
+            </FrameLayout>
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/et_validate_code"-->
+                    <!--android:layout_width="110dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/sp_edit_default"-->
+                    <!--android:hint="请输入验证码"-->
+                    <!--android:maxLength="12"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:paddingRight="10dp"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:textSize="14sp" />-->
+
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/btn_valide_code"-->
+                    <!--android:layout_width="80dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:background="#FFFFFF" />-->
+
+            <!--</LinearLayout>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text='@{"关联后，您的"+mark+"帐号和菜滴滴帐号都可以登录"}'
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/btn_bind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/st_button"
+                android:enabled="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="绑定"
+                android:textColor="@color/st_register_text" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

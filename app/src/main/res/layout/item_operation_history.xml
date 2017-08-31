@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.OperateHistory.OperateList" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/gap_2x"
+        android:paddingRight="@dimen/gap_2x">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#E1E1E1" />
+
+            <ImageView
+                android:id="@+id/img_step"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@mipmap/icon_step_no" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:background="#E1E1E1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap_3x"
+            android:background="@drawable/bg_underline"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/gap_2x"
+            android:paddingBottom="@dimen/gap_2x"
+            android:paddingRight="@dimen/gap_2x">
+
+            <TextView
+                android:id="@+id/txt_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.content}"
+                android:textColor="@color/textPrimary"
+                tools:text="这是内容这是内容这是内容这是内容" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:text="@{item.addTime}"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="2015-05-05" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

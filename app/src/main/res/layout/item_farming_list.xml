@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.FarmingList" />
+
+        <import type="android.view.View.OnClickListener" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textWhite"
+        android:paddingLeft="@dimen/gap_3x"
+        android:paddingRight="@dimen/gap_3x">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/bg_white_bottom_grey"
+            android:paddingBottom="@dimen/gap_2x"
+            android:paddingTop="@dimen/gap_2x"
+            android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_8"
+                    app:html="@{item.title}"
+                    android:lineSpacingMultiplier="1.1"
+                    tools:text="爱上解放了坚实解理在仙女了坚实解理在仙女" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.addTime}"
+                        android:textColor="@color/textNearlyGray"
+                        android:textSize="@dimen/sp_6"
+                        tools:text="5分钟前" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/gap_3x"
+                        android:textColor="@color/textNearlyGray"
+                        android:textSize="@dimen/sp_6"
+                        app:html="@{@string/count_read(item.viewCount)}"
+                        tools:text="12432浏览" />
+                </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

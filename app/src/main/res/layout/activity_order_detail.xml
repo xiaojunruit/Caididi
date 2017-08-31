@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.OrderDetail" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <com.laoodao.caididi.ui.widget.LoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_horiz_grey"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/gap_2x"
+                        android:paddingTop="@dimen/gap_6x">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:settle_state="@{item.status}" />
+
+                        <TextView
+                            android:id="@+id/txt_success"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/gap_2x"
+                            android:text="@{item.orderState}"
+                            android:textColor="@color/textDark"
+                            android:textSize="@dimen/sp_8" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/textWhite"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/gap_3x">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/gap"
+                            android:paddingTop="1dp"
+                            android:src="@mipmap/ic_order_perate" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingRight="@dimen/gap_3x">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{item.lastoperate}"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/sp_13" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/gap"
+                                android:text="@{item.lastoperatetime}"
+                                android:textColor="@color/textNearlyGray"
+                                android:textSize="@dimen/sp_6" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@mipmap/ic_forward" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:background="@color/textWhite"
+                        android:orientation="vertical"
+                        android:padding="@dimen/gap_3x">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{@string/order_serial_number(item.purchaseCode)}" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/gap"
+                                android:visibility="@{item.status==0?View.GONE:View.VISIBLE}"
+                                app:html="@{@string/order_total_money_green(String.valueOf(item.totalMoney))}" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/gap_4x"
+                                android:layout_marginTop="@dimen/gap"
+                                android:text='@{@string/discount_money(item.picPrefere)}'
+                                android:visibility='@{item.status==0?View.GONE:View.VISIBLE}' />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/gap"
+                            android:visibility="@{item.status==0?View.GONE:View.VISIBLE}"
+                            app:html="@{@string/surplus_not_settle_money_orange(String.valueOf(item.surplusMoney))}" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:background="@color/textWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_white_bottom_grey"
+                            android:paddingBottom="@dimen/gap_2x"
+                            android:paddingLeft="@dimen/gap_3x"
+                            android:paddingRight="@dimen/gap_3x"
+                            android:paddingTop="@dimen/gap_2x"
+                            android:text="蔬菜信息"
+                            android:textColor="@color/textDark"
+                            android:textSize="@dimen/sp_8" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </com.laoodao.caididi.ui.widget.LoadingView>
+    </LinearLayout>
+</layout>

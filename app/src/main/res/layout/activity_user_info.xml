@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.LoginInfo" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/gap_3x">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:onClick="@{listener}"
+                app:avatar="@{item.avatar}"
+                app:civ_border_color="@color/colorPrimaryDark"
+                app:civ_border_width="0dp"
+                app:civ_fill_color="#EEEEEE"
+                tools:src="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/avatar"
+                android:layout_alignRight="@id/avatar"
+                android:src="@mipmap/ic_user_camera" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:background="@color/textWhite"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/gap_3x">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/entry_height"
+                android:background="@drawable/bg_white_bottom_grey">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="60dp"
+                    android:text="@{item.number}"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="发的撒地方" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="编号"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/sp_8" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/entry_height"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="ID"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/sp_8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="60dp"
+                    android:text='@{item.cid+""}'
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="446556464" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/entry_height"
+                android:background="@drawable/bg_white_bottom_grey">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="账号"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/sp_8" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="@dimen/gap_3x"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{item.uid}"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="446556464" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/entry_height"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:onClick="@{listener}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="昵称"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/sp_8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="60dp"
+                    android:text="@{item.nickname}"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="阿斯蒂芬" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@mipmap/ic_forward" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_signature"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/entry_height"
+                android:background="@drawable/bg_white_bottom_grey">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="60dp"
+                    android:text="@{item.mobile}"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="发的撒地方" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="手机号"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/sp_8" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

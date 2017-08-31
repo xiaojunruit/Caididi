@@ -1,0 +1,55 @@
+<resources>
+
+
+    <style name="Form">
+    </style>
+
+    <style name="Form.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/entry_height</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/bg_underline</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/textDark</item>
+        <item name="android:textColorHint">@color/textMinor</item>
+    </style>
+    <style name="Form.EditText.Label">
+        <item name="labelWidth">70dp</item>
+        <item name="labelColor">@color/textPrimary</item>
+        <item name="labelSize">@dimen/sp_7</item>
+    </style>
+
+    <style name="Form.EditText.Label4W" parent="Form.EditText.Label">
+        <item name="labelWidth">100dp</item>
+    </style>
+
+
+    <style name="Form.Field">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/entry_height</item>
+        <item name="android:background">@drawable/bg_underline</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="Form.Label">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+    <style name="Form.Label4W" parent="Form.Label">
+        <item name="android:layout_width">100dp</item>
+    </style>
+    <style name="Form.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:spinnerMode">dialog</item>
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/textDark</item>
+    </style>
+</resources>

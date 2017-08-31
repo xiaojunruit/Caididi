@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.MyAnswer" />
+
+        <import type="com.laoodao.caididi.R" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/gap_2x"
+        android:background="@color/textWhite"
+        android:orientation="vertical"
+        android:padding="@dimen/gap_3x">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_2x"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"发表于"+item.addTime}'
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="发表于今天16:40" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/gap_4x"
+                android:drawableLeft="@mipmap/ic_positioning"
+                android:drawablePadding="@dimen/gap"
+                android:text="@{item.local}"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                android:visibility="@{TextUtils.isEmpty(item.local)?View.GONE:View.VISIBLE}"
+                tools:text="广东 东莞" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_2x"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.answerContent}"
+            android:visibility="@{TextUtils.isEmpty(item.answerContent)?View.GONE:View.VISIBLE}"
+            android:textColor="@color/textDark"
+            android:textSize="17sp"
+            tools:text="小宝贝哦啊啊啊啊就看了对方的开发大" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radius_bg"
+            android:orientation="horizontal">
+
+            <com.laoodao.caididi.ui.widget.RoundImageView
+                android:id="@+id/roundImageView"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="fitXY"
+                android:src="@{item.img}"
+                android:visibility="@{TextUtils.isEmpty(item.img)?View.GONE:View.VISIBLE}"
+                app:placeholder="@{R.mipmap.p430}"
+                app:riv_borderRadius="4dp"
+                app:riv_type="roundAll" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/gap">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:gravity="bottom"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@{item.title}"
+                    android:textColor="@color/textDark"
+                    android:textSize="15sp"
+                    tools:text="西瓜？" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{item.content}"
+                    android:textColor="@color/textPrimary"
+                    tools:text="好像好像好像好像好像好像好" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

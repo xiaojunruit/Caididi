@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="avatar"
+            type="String" />
+
+        <variable
+            name="nickname"
+            type="String" />
+
+        <variable
+            name="mark"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/gap_3x"
+            android:paddingRight="@dimen/gap_3x"
+            android:paddingTop="@dimen/gap_2x">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+
+                android:background="@mipmap/bg_joint_login"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
+                    app:avatar="@{avatar}"
+                    app:civ_border_color="#33e7fbf0"
+                    app:civ_border_width="3dp"
+                    tools:src="@mipmap/ic_launcher" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="尊敬的qq用户：李先生"
+                    app:html="@{@string/third_username(mark,nickname)}" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="为了给您更好的服务，请关联一个菜滴滴账号" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/gap_4x"
+                android:background="@drawable/bg_round_accent"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:text="快速注册"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_8" />
+
+            <TextView
+                android:id="@+id/btn_joint"
+                android:onClick="@{listener}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:gravity="right"
+                android:paddingBottom="@dimen/gap_2x"
+                android:paddingTop="@dimen/gap_2x"
+                android:textColor="@color/textClick"
+                android:text="已有菜滴滴帐户，立即关联"
+                android:textSize="12sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <!--<CheckBox-->
+                <!--android:id="@+id/btn_check"-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:visibility="gone"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:background="@drawable/bg_check"-->
+                <!--android:button="@null"-->
+                <!--android:onClick="@{listener}" />-->
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:text="已有菜滴滴帐户？"-->
+                <!--android:textSize="12sp" />-->
+
+            </LinearLayout>
+
+
+            <!--<TextView-->
+            <!--android:id="@+id/btn_joint_user"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginTop="@dimen/gap_2x"-->
+            <!--android:background="@drawable/st_button"-->
+            <!--android:enabled="false"-->
+            <!--android:gravity="center"-->
+            <!--android:onClick="@{listener}"-->
+            <!--android:text="立即关联"-->
+            <!--android:textColor="@color/st_register_text"-->
+            <!--android:textSize="@dimen/sp_8" />-->
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

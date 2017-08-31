@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.laoodao.caididi.ui.widget.LoadingView
+                android:id="@+id/loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.jcodecraeer.xrecyclerview.XRecyclerView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="-20dp" />
+            </com.laoodao.caididi.ui.widget.LoadingView>
+
+            <TextView
+                android:id="@+id/tv_positioning"
+                android:layout_width="65dp"
+                android:layout_height="21dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/gap_3x"
+                android:layout_marginTop="@dimen/gap_3x"
+                android:background="@drawable/bg_round_dark_grey"
+                android:gravity="center"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_5"
+                android:visibility="gone"
+                tools:text="定位城市" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

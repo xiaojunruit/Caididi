@@ -1,0 +1,46 @@
+<resources>
+
+    <dimen name="size_action_bar">48dp</dimen>
+
+
+    <dimen name="banner_height">100dp</dimen>
+
+
+    <dimen name="px_1">1px</dimen>
+
+    <dimen name="gap">5dp</dimen>
+    <dimen name="gap_2x">10dp</dimen>
+    <dimen name="gap_3x">15dp</dimen>
+    <dimen name="gap_4x">20dp</dimen>
+    <dimen name="gap_5x">25dp</dimen>
+    <dimen name="gap_6x">30dp</dimen>
+    <dimen name="sp_3">10sp</dimen>
+    <dimen name="sp_4">11sp</dimen>
+    <dimen name="sp_5">12sp</dimen>
+    <dimen name="sp_6">13sp</dimen>
+    <dimen name="sp_7">14sp</dimen>
+    <dimen name="sp_8">16sp</dimen>
+    <dimen name="sp_9">18sp</dimen>
+    <dimen name="sp_10">20sp</dimen>
+    <dimen name="sp_11">22sp</dimen>
+
+    <dimen name="sp_13">15sp</dimen>
+
+    <dimen name="line_spacing">4sp</dimen>
+    <dimen name="entry_height">48dp</dimen>
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="toolbar_icon_size">48dp</dimen>
+    <dimen name="toolbar_icon_padding">15dp</dimen>
+    <dimen name="toolbar_title_sp">18dp</dimen>
+    <dimen name="btn_radius">2dp</dimen>
+    <dimen name="bar_height">48dp</dimen>
+    <dimen name="btn_height">32dp</dimen>
+    <dimen name="margin_text">8dp</dimen>
+    <dimen name="margin_layout">16dp</dimen>
+    <dimen name="status_bar_height">25dp</dimen>
+    <dimen name="big_image_size">74dp</dimen>
+    <dimen name="min_button_width">52dp</dimen>
+    <dimen name="middle_text_size">17sp</dimen>
+    <dimen name="small_text_size">15sp</dimen>
+    <dimen name="mini_text_size">13sp</dimen>
+</resources>

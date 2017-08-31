@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="id"
+            type="int" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/gap_3x">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="操作时间"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp" />
+
+
+                    <TextView
+                        android:id="@+id/txt_time"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/gap_4x"
+                        android:textColor="@color/textNearlyGray"
+                        android:onClick="@{listener}"
+                        android:textSize="13sp"
+                        android:text="2014-01-01"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_calendar"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_operation_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:text="整地"
+                    android:textColor="@color/textAccent"
+                    android:textSize="15sp" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:background="@drawable/bg_radius_border_gray"
+                    android:padding="@dimen/gap_2x"
+                    android:id="@+id/fl_other"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="添加其他操作"
+                        android:textColor="@color/textDark"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/et_operation"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="输入操作"
+                        android:textSize="13sp" />
+                </FrameLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/gap_2x"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:text="农资成本"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_farming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_add_farming"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="@dimen/gap_2x"
+                    android:layout_marginTop="@dimen/gap"
+                    android:background="@drawable/bg_radius_accent"
+                    android:gravity="center"
+                    android:onClick="@{listener}"
+                    android:text="添加更多农资成本"
+                    android:textColor="@color/textWhite" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/gap_2x"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:text="机械成本"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_machine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_add_machine"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="@dimen/gap_2x"
+                    android:layout_marginTop="@dimen/gap"
+                    android:background="@drawable/bg_radius_accent"
+                    android:gravity="center"
+                    android:onClick="@{listener}"
+                    android:text="添加更多机械成本"
+                    android:textColor="@color/textWhite" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:text="人工成本"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="15sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:background="@drawable/bg_radius_border_gray"
+                    android:padding="@dimen/gap_2x">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="费用总计（元）"
+                        android:textColor="@color/textDark"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/et_moeny"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="输入金额"
+                        android:inputType="number"
+                        android:textSize="13sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:text="备注"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="15sp" />
+
+
+                <EditText
+                    android:id="@+id/et_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:background="@drawable/bg_radius_border_gray"
+                    android:gravity="top"
+                    android:hint="请输入备注"
+                    android:padding="@dimen/gap"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="@dimen/gap_2x"
+                    android:layout_marginLeft="@dimen/gap_4x"
+                    android:layout_marginRight="@dimen/gap_4x"
+                    android:layout_marginTop="@dimen/gap_3x"
+                    android:background="@drawable/bg_radius_accent"
+                    android:gravity="center"
+                    android:onClick="@{listener}"
+                    android:text="确认完成"
+                    android:textColor="@color/textWhite" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

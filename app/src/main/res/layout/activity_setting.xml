@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.LoginInfo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/widget_toolbar" />
+
+
+            <LinearLayout
+                android:id="@+id/btn_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:onClick="@{listener}"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/gap_2x"
+                android:paddingLeft="@dimen/gap_3x"
+                android:paddingTop="@dimen/gap_2x">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/gap_3x"
+                    app:avatar="@{item.avatar}"
+                    app:civ_border_color="@color/colorPrimaryDark"
+                    app:civ_border_width="0dp"
+                    app:civ_fill_color="#EEEEEE"
+                    tools:src="@mipmap/ic_launcher" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textDark"
+                        android:textSize="@dimen/sp_7"
+                        app:html='@{item.nickname ?? "用户昵称"}' />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap"
+                        android:text="修改个人资料"
+                        android:textColor="@color/textMinor"
+                        android:textSize="@dimen/sp_6" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_forward" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/UI.Group">
+
+                <ezy.widget.view.SettingView
+                    android:id="@+id/txt_bound_account"
+                    style="@style/UI.Entry.Enter"
+                    android:background="@color/textWhite"
+                    android:onClick="@{listener}"
+                    app:settingTitle="账号与密码" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/entry_height"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:background="@color/textWhite"
+                android:paddingLeft="@dimen/gap_3x"
+                android:paddingRight="@dimen/gap_2x">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="消息通知推送"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="@dimen/sp_8" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_push"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@null"
+                    android:button="@drawable/toggle_btn"
+                    android:checked="@{item.isReceivePush?true:false}"
+                    android:onClick="@{listener}" />
+            </FrameLayout>
+
+            <LinearLayout style="@style/UI.Group">
+
+                <ezy.widget.view.SettingView
+                    android:id="@+id/txt_about"
+                    style="@style/UI.Entry.Enter"
+                    android:onClick="@{listener}"
+                    app:settingTitle="关于菜滴滴" />
+
+                <ezy.widget.view.SettingView
+                    android:id="@+id/txt_check_update"
+                    style="@style/UI.Entry.Enter"
+                    android:onClick="@{listener}"
+                    app:settingTitle="检查更新" />
+
+                <ezy.widget.view.SettingView
+                    android:id="@+id/txt_clean"
+                    style="@style/UI.Entry"
+                    android:onClick="@{listener}"
+                    android:paddingRight="@dimen/gap_3x"
+                    app:settingTitle="清理缓存"
+                    app:settingValue="1MB" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_loginout"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/gap_3x"
+            android:background="@drawable/bg_radius_pink"
+            android:gravity="center"
+            android:onClick="@{listener}"
+            android:text="退出登录"
+            android:textColor="@color/textWhite"
+            android:textSize="@dimen/sp_8" />
+    </RelativeLayout>
+</layout>

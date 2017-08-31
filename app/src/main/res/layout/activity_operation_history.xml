@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.OperateHistory" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <com.laoodao.caididi.ui.widget.LoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.andview.refreshview.XRefreshView
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.andview.refreshview.XScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/gap_2x"
+                            android:background="@color/textWhite"
+                            android:orientation="vertical"
+                            android:padding="@dimen/gap_3x">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:html="@{@string/order_state(item.orderState)}" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{@string/order_serial_number(item.purchaseCode)}" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{@string/update_time(item.lastpaytime)}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/textWhite"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/gap_2x"
+                                android:background="@drawable/bg_white_bottom_grey"
+                                android:drawableLeft="@mipmap/ic_order_perate"
+                                android:drawablePadding="@dimen/gap"
+                                android:textSize="@dimen/sp_8"
+                                android:textColor="@color/textDark"
+                                android:gravity="center_vertical"
+                                android:paddingBottom="@dimen/gap_2x"
+                                android:paddingLeft="@dimen/gap_3x"
+                                android:paddingRight="@dimen/gap_3x"
+                                android:paddingTop="@dimen/gap_2x"
+                                android:text="订单操作记录" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/list"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.andview.refreshview.XScrollView>
+            </com.andview.refreshview.XRefreshView>
+        </com.laoodao.caididi.ui.widget.LoadingView>
+
+    </LinearLayout>
+</layout>

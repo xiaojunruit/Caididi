@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_f4"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <FrameLayout style="@style/UI.Group">
+
+            <EditText
+                android:id="@+id/txt_signature"
+                style="@style/Form.EditText"
+                android:hint="请输入签名"
+                android:maxLength="20" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/gap_3x">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置后其他人将看到您的签名"
+                android:textColor="@color/textMinor"
+                android:textSize="@dimen/sp_6" />
+
+            <TextView
+                android:id="@+id/txt_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/20"
+                android:layout_gravity="right"
+                android:textColor="@color/textMinor"
+                android:textSize="@dimen/sp_6" />
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rtv_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="1dp"
+    android:paddingLeft="@dimen/gap_2x"
+    android:paddingRight="@dimen/gap_2x"
+    android:paddingTop="1dp"
+    android:textColor="@color/white"
+    android:textSize="@dimen/sp_4"
+    app:rv_backgroundColor="@color/colorAccent"
+    app:rv_cornerRadius="@dimen/gap_2x"
+    tools:text="尖椒" />
+

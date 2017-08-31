@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.Answer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1px"
+        android:background="@color/textWhite"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/gap_3x"
+        android:paddingLeft="@dimen/gap_3x">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_bottom_grey"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/gap_2x"
+            android:paddingTop="@dimen/gap_2x">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textDark"
+                android:textSize="17sp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:html="@{item.title}"
+                tools:text="小黄瓜用什么肥料好？" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                app:html="@{item.content}"
+                tools:text="小黄瓜用什么肥料好卡斯加对方垃圾苏打绿咖啡就撒旦拉飞机了卡萨解放了第三方？" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{"回答"+item.answerTotal}'
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6"
+                    tools:text="回答8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@{item.addTime}"
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6"
+                    tools:text="2016-12-6 12:25" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

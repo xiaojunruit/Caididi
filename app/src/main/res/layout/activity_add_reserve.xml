@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:background="@color/textWhite"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:orientation="horizontal"
+                android:padding="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="姓名" />
+
+
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请填写您的真实姓名"
+                    android:inputType="text"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_7" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:orientation="horizontal"
+                android:padding="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="电话" />
+
+
+                <EditText
+                    android:id="@+id/edit_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入有效电话号码"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_white_bottom_grey"
+                android:padding="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="选择作物" />
+
+                <EditText
+                    android:id="@+id/edit_crops_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="输入作物名称"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="农田面积" />
+
+                <EditText
+                    android:id="@+id/edit_farmland_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入农田面积"
+                    android:textColorHint="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_7" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:background="@color/textWhite"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/gap_5x"
+            android:paddingLeft="@dimen/gap_3x"
+            android:paddingRight="@dimen/gap_3x"
+            android:paddingTop="@dimen/gap_3x">
+
+            <EditText
+                android:id="@+id/edit_desc"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/textWhite"
+                android:gravity="top"
+                android:textSize="@dimen/sp_7"
+                android:textColorHint="@color/textNearlyGray"
+                android:hint="主要问题描述" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_image_parent"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/image_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/chooes_image"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:onClick="@{onClick}"
+                    android:src="@mipmap/icon_select_photo" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="@dimen/gap_3x"
+            android:layout_marginRight="@dimen/gap_3x"
+            android:layout_marginTop="@dimen/gap_4x"
+            android:background="@drawable/bg_radius_accent"
+            android:gravity="center"
+            android:onClick="@{onClick}"
+            android:text="确认提交"
+            android:textColor="@color/textWhite" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

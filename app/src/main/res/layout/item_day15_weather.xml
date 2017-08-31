@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_cc"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/gap_2x"
+    android:paddingTop="@dimen/gap_2x">
+
+    <TextView
+        android:id="@+id/tv_week"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="昨天"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="12/07"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_day_weather"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="晴"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/iv_day_weather"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="3dp"
+        android:src="@mipmap/org3_ww3" />
+
+    <com.laoodao.caididi.ui.weather.widget.TemperatureView
+        android:id="@+id/ttv_day"
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_night_weather"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="3dp"
+        android:src="@mipmap/org3_ww3" />
+
+    <TextView
+        android:id="@+id/tv_night_weather"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="晴"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_wind_ori"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="西南风"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_wind_level"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="3级"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+
+
+
+</LinearLayout>

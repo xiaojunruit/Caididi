@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/textWhite"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/edittxt_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/gap_2x"
+            android:layout_weight="2"
+            android:background="@drawable/bg_round_grey_20"
+            android:hint="我来说两句"
+            android:paddingLeft="@dimen/gap_2x"
+            android:textColorHint="@color/textNearlyGray"
+            android:textSize="@dimen/sp_6" />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap"
+            android:layout_marginRight="@dimen/gap_3x"
+            android:gravity="center"
+            android:onClick="@{onClick}"
+            android:text="发送"
+            android:textColor="@color/textNearlyGray"
+            android:textSize="@dimen/sp_7"
+            android:visibility="gone" />
+
+
+        <CheckBox
+            android:id="@+id/cb_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap"
+            android:layout_marginRight="@dimen/gap_3x"
+            android:button="@drawable/collection_checkbox_style"
+            android:text="收藏"
+            android:textColor="@color/textNearlyGray"
+            android:textSize="@dimen/sp_7" />
+    </LinearLayout>
+</layout>

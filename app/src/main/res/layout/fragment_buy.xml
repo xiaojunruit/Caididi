@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/top_bg" />
+
+        <FrameLayout
+            android:id="@+id/fl_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="@dimen/gap_3x"
+                android:onClick="@{onClick}"
+
+                android:src="@mipmap/ic_search_white" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="蔬菜求购"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_9" />
+
+            <ImageView
+                android:id="@+id/img_ask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:onClick="@{onClick}"
+                android:layout_marginRight="@dimen/gap_3x"
+                android:src="@mipmap/ic_buy_top" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/tool_menu"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_white_underline"
+            android:orientation="horizontal"
+            android:layout_below="@+id/fl_title"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:id="@+id/btn_province"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:onClick="@{onClick}"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/gap"
+                    android:drawableRight="@drawable/ic_arrow"
+                    android:duplicateParentState="true"
+                    android:text="地区"
+                    android:textColor="@color/item_tab_nearly" />
+
+                <TextView
+                    android:id="@+id/txt_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="全国"
+                    android:textColor="@color/textDark" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <LinearLayout
+                android:id="@+id/btn_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:onClick="@{onClick}"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/gap"
+                    android:drawableRight="@drawable/ic_arrow"
+                    android:duplicateParentState="true"
+                    android:text="品类"
+                    android:textColor="@color/item_tab_nearly" />
+
+                <TextView
+                    android:id="@+id/txt_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="默认"
+                    android:textColor="@color/textDark" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <LinearLayout
+                android:id="@+id/btn_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:onClick="@{onClick}"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/gap_3x">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/gap"
+                    android:drawableRight="@drawable/ic_arrow"
+                    android:duplicateParentState="true"
+                    android:text="截止时间"
+                    android:textColor="@color/item_tab_nearly" />
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="默认"
+                    android:textColor="@color/textDark" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ezy.widget.layout.LoadingLayout
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_menu"
+            app:contentId="@+id/list">
+
+
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager" />
+
+        </ezy.widget.layout.LoadingLayout>
+
+    </RelativeLayout>
+</layout>

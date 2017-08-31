@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoggedIn"
+            type="boolean" />
+
+        <variable
+            name="login"
+            type="com.laoodao.caididi.retrofit.user.LoginInfo" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_f4">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_user_info" />
+
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:fitsSystemWindows="true"
+                android:paddingBottom="@dimen/gap_3x">
+
+                <LinearLayout
+                    android:id="@+id/ll_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/gap_4x"
+                    android:gravity="center"
+                    android:onClick="@{onClick}"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:onClick="@{onClick}"
+                        app:avatar='@{isLoggedIn?login.avatar:null}'
+                        app:civ_border_color="#55D391"
+                        app:civ_border_width="@dimen/gap" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/gap_2x"
+                        android:text='@{isLoggedIn ?login.nickname:"未登录"}'
+                        android:textColor="@color/textWhite" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{onClick}"
+                    android:padding="@dimen/gap_2x"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/icon_message" />
+
+                    <com.flyco.tablayout.widget.MsgView
+                        android:layout_width="12dp"
+                        android:id="@+id/msg_dot"
+                        android:layout_height="12dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:layout_toRightOf="@+id/icon"
+                        android:layout_marginLeft="-7dp"
+                        android:textColor="#ffffff"
+                        android:textSize="11.5sp"
+
+                        app:mv_backgroundColor="#FD481F"
+                        app:mv_isRadiusHalfHeight="true"
+                        app:mv_strokeColor="#ffffff"
+                        app:mv_strokeWidth="1dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/textWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/bg_underline"
+                        android:paddingBottom="@dimen/gap_3x"
+                        android:paddingTop="@dimen/gap_3x"
+                        android:text="与我相关" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <LinearLayout
+                            android:id="@+id/ll_problem"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{onClick}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{isLoggedIn? login.question+"":"—"}' />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="问题" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_supply"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{onClick}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{isLoggedIn? login.provide+"":"—"}' />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="供应" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_ask_buy"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{onClick}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{isLoggedIn?login.buy+"":"—"}' />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="求购" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{isLoggedIn?login.transport+"":"—"}' />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="货运" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/textWhite"/>
+               <!-- <android.support.v7.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_2x"
+                    android:background="@color/background_f4"
+                    app:columnCount="3"
+                    app:orientation="horizontal"
+                    app:rowCount="2">
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/btn_my_answer"
+                        style="@style/Button.NavItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1px"
+                        android:layout_marginRight="1px"
+                        android:layout_weight="1"
+                        android:onClick="@{onClick}"
+                        android:text="我的问答"
+                        app:iconDrawable="@mipmap/icon_user1"
+                        app:layout_columnWeight="1" />
+
+                    <ezy.widget.view.IconTextButton
+                        style="@style/Button.NavItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1px"
+                        android:layout_marginRight="1px"
+                        android:layout_weight="1"
+                        android:onClick="@{onClick}"
+                        android:text="我的供求"
+                        app:iconDrawable="@mipmap/icon_user2"
+                        app:layout_columnWeight="1" />
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/freight"
+                        style="@style/Button.NavItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="1px"
+                        android:layout_weight="1"
+                        android:onClick="@{onClick}"
+                        android:text="我的货运"
+                        app:iconDrawable="@mipmap/icon_user3"
+                        app:layout_columnWeight="1" />
+
+                    <ezy.widget.view.IconTextButton
+                        style="@style/Button.NavItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="1px"
+                        android:layout_weight="1"
+                        android:onClick="@{onClick}"
+                        android:text="我的农田"
+                        app:iconDrawable="@mipmap/icon_user4"
+                        app:layout_columnWeight="1" />
+
+                    <ezy.widget.view.IconTextButton
+                        style="@style/Button.NavItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{onClick}"
+                        android:text="我的收藏"
+                        app:iconDrawable="@mipmap/icon_user5"
+                        app:layout_columnWeight="1" />
+
+                    <ezy.widget.view.IconTextButton
+                        android:id="@+id/txt_setting"
+                        style="@style/Button.NavItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1px"
+                        android:layout_weight="1"
+                        android:onClick="@{onClick}"
+                        android:text="设置"
+                        app:iconDrawable="@mipmap/icon_user6"
+                        app:layout_columnWeight="1" />
+                </android.support.v7.widget.GridLayout>-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="800dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

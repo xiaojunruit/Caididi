@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.CollectionDetail.CollectionDetailList" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_2x"
+        android:background="@color/textWhite"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_bottom_grey"
+            android:drawableRight="@mipmap/ic_right_forward"
+            android:paddingBottom="@dimen/gap_2x"
+            android:paddingLeft="@dimen/gap_3x"
+            android:paddingRight="@dimen/gap_3x"
+            android:paddingTop="@dimen/gap_2x"
+            android:text="@{@string/current_settle_money(item.payMoney)}"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/sp_13"
+            tools:text="本次结算金额：50元" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/gap_3x">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/order_num(item.purchaseCode)}"
+                tools:text="订单号码:1234564132" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:text="@{@string/order_total_money(item.totalMoney)}"
+                tools:text="订单总额：8564" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                app:html="@{@string/surplus_not_settle_money_orange(item.surplusMoney)}"
+                tools:text="剩余未结算金额：360" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

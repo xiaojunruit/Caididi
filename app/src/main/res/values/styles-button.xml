@@ -1,0 +1,183 @@
+<resources>
+
+    <style name="Button">
+    </style>
+
+
+
+    <style name="Button.ThirdLogin.Share">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textColor">@color/textMinor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="iconPadding">5dp</item>
+        <item name="iconSize">28dp</item>
+        <item name="iconTextSize">28dp</item>
+        <item name="iconTextColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.Link">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textAccentBlue</item>
+        <item name="android:textSize">@dimen/sp_5</item>
+    </style>
+    <style name="Button.Round">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_accent</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Button.Round.Small">
+        <item name="android:layout_height">20dp</item>
+        <item name="android:textSize">@dimen/sp_4</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:background">@drawable/bg_round_accent</item>
+    </style>
+    <style name="Button.Round.AuthCode">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/gap</item>
+        <item name="android:textSize">@dimen/sp_6</item>
+        <item name="android:layout_marginRight">@dimen/gap_4x</item>
+    </style>
+    <style name="Button.Round.Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="Button.Solid">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/bg_solid_accent</item>
+        <item name="android:textColor">@color/textWhite</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Button.Solid.Small">
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textSize">@dimen/sp_5</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+    <style name="Button.Solid.Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textSize">22sp</item>
+
+
+    </style>
+    <style name="Button.Solid.Grey">
+        <item name="android:textColor">@color/textDark</item>
+        <item name="android:background">@drawable/bg_solid_grey</item>
+    </style>
+    <style name="Button.Solid.Big.Grey">
+        <item name="android:textColor">@color/textDark</item>
+        <item name="android:background">@drawable/bg_solid_grey</item>
+    </style>
+
+
+
+
+
+
+
+
+
+    <style name="Button.TabItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <!--<item name="android:layout_marginRight">1dp</wr>-->
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textColor">@color/item_tab</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@color/white</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconTextSize">24dp</item>
+        <item name="fontPath">font/kjicons.ttf</item>
+    </style>
+    <style name="Button.NavItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">1px</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:background">@drawable/bg_white_pressed</item>
+        <item name="iconPadding">10dp</item>
+        <item name="iconSize">30dp</item>
+        <item name="iconTextSize">30sp</item>
+        <item name="iconTextColor">@color/colorAccent</item>
+        <item name="fontPath">font/kjicons.ttf</item>
+    </style>
+    <style name="Button.ThirdLogin">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">10px</item>
+        <item name="android:layout_marginLeft">10px</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textColor">@color/textMinor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="iconPadding">5dp</item>
+        <item name="iconSize">50dp</item>
+        <item name="iconTextSize">50dp</item>
+        <item name="iconTextColor">@color/colorAccent</item>
+    </style>
+    <style name="Button.Share">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textColor">@color/textMinor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="iconSize">50dp</item>
+        <item name="iconTextSize">28dp</item>
+        <item name="iconTextColor">@color/colorAccent</item>
+    </style>
+
+
+    <style name="Button.Share.Small">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textColor">@color/textMinor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="iconSize">25dp</item>
+        <item name="iconTextSize">16dp</item>
+        <item name="iconTextColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.Entry">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/entry_height</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/bg_white_horiz_grey</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/textDark</item>
+    </style>
+</resources>

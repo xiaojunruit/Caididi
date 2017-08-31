@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/empty_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:src="@mipmap/ic_no_choose"/>
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_6"
+        android:textColor="@color/textNearlyGray"
+        android:layout_marginTop="@dimen/gap_2x"
+        android:paddingLeft="@dimen/gap_6x"
+        android:paddingRight="@dimen/gap_6x"
+        android:gravity="center"
+        android:text=""
+        tools:text="阿斯顿发斯蒂芬斯蒂芬阿斯顿发斯蒂芬斯蒂芬阿斯顿发斯蒂芬斯蒂芬阿斯顿发斯蒂芬斯蒂芬"/>
+
+    <TextView
+        android:id="@+id/empty_button"
+        android:layout_width="130dp"
+        android:layout_height="39dp"
+        android:background="@drawable/bg_round_accent_20"
+        android:paddingLeft="@dimen/gap_5x"
+        android:paddingRight="@dimen/gap_5x"
+        android:paddingTop="@dimen/gap_2x"
+        android:gravity="center"
+        android:paddingBottom="@dimen/gap_2x"
+        android:layout_marginTop="@dimen/gap_2x"
+        android:textColor="@color/textWhite"
+        android:text="选择城市"
+        tools:text="选择城市"/>
+
+
+</LinearLayout>

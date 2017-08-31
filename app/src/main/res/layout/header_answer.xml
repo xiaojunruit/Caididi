@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.AnswerDetail" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/textWhite"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/gap_3x">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@id/cl_avatar"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{listener}"
+                    android:src="@{item.memberAvatar}"
+                    app:civ_border_color="@color/colorPrimaryDark"
+                    app:civ_border_width="0dp"
+                    app:civ_fill_color="#EEEEEE"
+
+                    tools:src="@mipmap/default_user_portrait" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/gap_2x"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="@{item.memberName}"
+                        android:textColor="@color/textPrimary"
+                        tools:text="小哥" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{item.addTime}"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            tools:text="2016-12-30 13:32:59" />
+
+                        <TextView
+                            android:id="@id/cl_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/gap_3x"
+                            android:drawableLeft="@mipmap/ic_positioning"
+                            android:drawablePadding="3dp"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="@{item.local}"
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            android:visibility='@{TextUtils.isEmpty(item.local)?View.GONE:View.VISIBLE}'
+                            tools:text="第三方公" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/gap_3x"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text='@{item.readCount+"人阅读"}'
+                            android:textColor="@color/textNearlyGray"
+                            android:textSize="@dimen/sp_6"
+                            tools:text="1111111111222222222221" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/com_head"
+            android:background="@color/textWhite"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/gap_3x"
+            android:paddingRight="@dimen/gap_3x">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/gap"
+                android:text="@{item.title}"
+                android:textColor="@color/textDark"
+                android:textSize="17sp"
+                tools:text="这是狗头" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/gap_2x"
+                android:text="@{item.content}"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/sp_8"
+                tools:text="这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_img_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+
+            <com.laoodao.caididi.common.widget.TagGroup
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtsearch"
+                android:padding="@dimen/gap_2x"
+                android:visibility="gone"
+                app:tgp_horizontal_spacing="@dimen/gap_2x"
+                app:tgp_vertical_spacing="@dimen/gap_2x" />
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_names"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6"
+                    android:visibility="@{item.namesTotal==0?View.GONE:View.VISIBLE}"
+                    app:html='@{item.names}'
+                    tools:text="150****8558、136****0250、136****0250" />
+
+                <TextView
+                    android:id="@+id/txt_names_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text='@{item.namesTotal>1?" 等"+item.namesTotal+"人想知道答案":" "+item.namesTotal+"人想知道答案"}'
+                    android:textColor="@color/textNearlyGray"
+                    android:textSize="@dimen/sp_6"
+                    android:visibility="@{item.namesTotal==0?View.GONE:View.VISIBLE}"
+                    tools:text="等5人想知道答案" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_know"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginBottom="@dimen/gap_3x"
+                android:layout_marginTop="@dimen/gap_2x"
+                android:background="@drawable/bg_radius_accent"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:text="我也想知道答案"
+                android:textColor="@color/textWhite" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reply_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_content"
+            android:background="@color/background"
+            android:padding="@dimen/gap_3x"
+            android:text='@{item.answerTotal+"人回复"}'
+            tools:text="12人回复" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="landNum"
+            type="String" />
+
+        <variable
+            name="acreage"
+            type="String" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/gap_4x"
+            android:paddingTop="@dimen/gap_4x"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txt_farmland_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="暂无农田信息，您可点一下按钮进行添加"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_8" />
+
+            <TextView
+                android:id="@+id/txt_add_farmland"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/gap_3x"
+                android:background="@drawable/bg_radius_border_white"
+                android:gravity="center"
+                android:onClick="@{listener}"
+                android:padding="@dimen/gap_2x"
+                android:text="添加更多农田信息"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/sp_8" />
+        </LinearLayout>
+
+        <com.laoodao.caididi.ui.widget.LoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:emptyView="@layout/empty_farmland_manager">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/gap_2x">
+
+                <com.jcodecraeer.xrecyclerview.XRecyclerView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:id="@+id/btn_add_farming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_line_top"
+                    android:onClick="@{listener}"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/gap_3x"
+                    android:paddingLeft="50dp"
+                    android:paddingTop="@dimen/gap_3x">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/btn_add_more" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/gap"
+                        android:text="添加更多农田信息" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.laoodao.caididi.ui.widget.LoadingView>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,110 @@
+<resources>
+
+    <style name="UI"></style>
+
+
+    <style name="UI.Group">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:paddingLeft">@dimen/gap_3x</item>
+        <item name="android:background">@drawable/bg_white_horiz_grey</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="UI.GroupTwo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/gap_3x</item>
+        <item name="android:background">@drawable/bg_white_horiz_grey</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LoadingView"/>
+    <style name="LoadingView.Content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textColor">#a9b7b7</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+    <style name="UI.HLine.Double">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/gap_2x</item>
+        <item name="android:background">@drawable/bg_white_horiz_grey</item>
+    </style>
+    <style name="UI.HLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/border</item>
+    </style>
+
+    <style name="UI.VLine">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/border</item>
+    </style>
+
+
+    <style name="UI.Entry">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/entry_height</item>
+        <item name="settingLayout">@layout/_widget_lable</item>
+        <item name="settingIconSize">30dp</item>
+    </style>
+
+    <style name="UI.Entry.Alone">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/entry_height</item>
+        <item name="android:layout_marginTop">@dimen/gap_2x</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:paddingLeft">@dimen/gap_3x</item>
+        <item name="android:paddingRight">@dimen/gap_3x</item>
+        <!--<item name="settingArrow">@string/icon_arrow_enter</item>-->
+    </style>
+
+    <style name="UI.Entry.Choice">
+        <item name="settingArrow">\U2BC6</item>
+    </style>
+
+    <style name="UI.Entry.Blank">
+
+        <item name="settingArrow">　</item>
+    </style>
+
+    <style name="UI.Entry.Enter">
+        <item name="settingArrow">@mipmap/ic_forward</item>
+    </style>
+    <style name="UI.Entry.Enter.Setting">
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+
+    <style name="UI.ProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <!--<item name="android:progressDrawable">@drawable/progress_raffle</item>-->
+    </style>
+
+    <style name="UI.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginBottom">1px</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorColor">@color/colorAccent</item>
+        <item name="tabTextColor">@color/textDark</item>
+        <item name="tabSelectedTextColor">@color/colorAccent</item>
+        <item name="tabMode">fixed</item>
+    </style>
+
+    <style name="UI.PopupAnimation" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/anim_popmenu_show</item>
+        <item name="android:windowExitAnimation">@anim/anim_popmenu_hide</item>
+    </style>
+
+</resources>

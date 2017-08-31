@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/textWhite"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/gap_2x">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@id/cl_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/gap_2x"
+        android:src="@mipmap/ic_launcher"
+        app:civ_border_color="@color/colorPrimaryDark"
+        app:civ_border_width="0dp"
+        app:civ_fill_color="#EEEEEE" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/cl_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textNearlyGray"
+            android:textSize="@dimen/sp_8"
+            tools:text="农之星" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@id/cl_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="2016-12-6 12:55" />
+
+            <TextView
+                android:id="@id/cl_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/gap_3x"
+                android:drawableLeft="@mipmap/ic_positioning"
+                android:drawablePadding="@dimen/gap"
+                android:gravity="center"
+                android:maxEms="8"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="广东 东莞广东 东莞广东 东莞" />
+
+            <TextView
+                android:id="@id/cl_read_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/gap_3x"
+                android:textColor="@color/textNearlyGray"
+                android:textSize="@dimen/sp_6"
+                tools:text="2人阅读" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

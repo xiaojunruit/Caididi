@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/loc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/current_select_city"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/gap_3x"
+                android:text="当前:未选择"
+
+                android:textColor="@color/textDark" />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=""
+                android:maxLength="3"
+                android:textColor="@color/textDark" />
+
+            <TextView
+                android:id="@+id/county"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=""
+                android:maxLength="3"
+                android:textColor="@color/textDark" />
+
+            <TextView
+                android:id="@+id/xiang"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=""
+                android:maxLength="3"
+                android:textColor="@color/textDark" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_chooes_county"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/side_letter_bar_width"
+            android:clickable="true"
+            android:drawablePadding="@dimen/gap"
+            android:drawableRight="@mipmap/icon_arrow_down"
+            android:gravity="center"
+            android:text="选择"
+            android:textColor="@color/textPrimary"
+            android:textSize="@dimen/sp_5" />
+    </LinearLayout>
+
+    <com.laoodao.caididi.ui.widget.citySelector.view.WrapHeightGridView
+        android:id="@+id/grid_county"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/gap_2x"
+        android:cacheColorHint="@android:color/transparent"
+        android:horizontalSpacing="12dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:paddingLeft="16dp"
+        android:paddingRight="@dimen/side_letter_bar_width"
+        android:scrollbars="none"
+        android:verticalSpacing="12dp"
+        android:visibility="gone" />
+</LinearLayout>

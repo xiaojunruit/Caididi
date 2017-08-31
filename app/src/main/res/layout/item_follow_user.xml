@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.main.FollowUser" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/gap_3x"
+        android:background="@drawable/selector_item_selected">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@id/cl_avatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="@dimen/gap_2x"
+            android:onClick="@{onClick}"
+            android:src="@{item.memberAvatar}"
+            app:civ_border_color="@color/colorPrimaryDark"
+            app:civ_border_width="0dp"
+            app:civ_fill_color="#EEEEEE" />
+
+        <LinearLayout
+            android:id="@+id/ll_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:layout_toRightOf="@+id/cl_avatar"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:html="@{item.memberName}"
+                android:textColor="@color/textDark"
+                android:textSize="17sp"
+                android:ellipsize="end"
+                android:maxEms="6"
+                android:maxLines="1"
+                tools:text="啊啊啊啊啊啊啊啊啊啊啊" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/gap_2x"
+                android:text='@{item.atttotal+"关注者"}'
+                android:textColor="@color/textNearlyGray"
+                tools:text="12342关注者" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_user"
+            android:layout_marginTop="@dimen/gap"
+            android:layout_toRightOf="@+id/cl_avatar"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{item.answerTotal+"回答"}'
+                android:textColor="@color/textNearlyGray"
+                tools:text="46154回答" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/gap_2x"
+                android:text='@{item.praiseTotal+"赞同"}'
+                android:textColor="@color/textNearlyGray"
+                tools:text="5.5万赞同" />
+        </LinearLayout>
+
+        <com.laoodao.caididi.ui.widget.DrawableTextView
+            android:id="@+id/txt_follow"
+            android:layout_width="70dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_round_accent_20"
+            android:gravity="center"
+            android:text="关注"
+            android:textColor="@color/textWhite"
+            android:textSize="@dimen/sp_6"
+            android:visibility="@{item.is_self?View.GONE:View.VISIBLE}"
+            app:follow_status="@{item.state}" />
+    </RelativeLayout>
+</layout>

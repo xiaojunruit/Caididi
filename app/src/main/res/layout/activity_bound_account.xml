@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="item"
+            type="com.laoodao.caididi.retrofit.user.LoginInfo"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_toolbar" />
+
+        <LinearLayout
+            style="@style/UI.Group">
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/txt_update_phone"
+                style="@style/UI.Entry.Enter"
+                app:settingValue="@{item.mobile}"
+                android:onClick="@{listener}"
+                app:settingTitle="手机号码" />
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/txt_update_pwd"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingTitle="修改密码" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_2x"
+            android:paddingLeft="@dimen/gap_3x"
+            android:text="绑定账号可直接登录菜滴滴"
+            android:textColor="@color/textNearlyGray"
+            android:textSize="@dimen/sp_6" />
+
+
+
+        <LinearLayout
+            style="@style/UI.Group">
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/btn_wx"
+                style="@style/UI.Entry.Enter"
+                app:settingValue="未绑定"
+                android:onClick="@{listener}"
+                app:settingIcon="@mipmap/icon_wx"
+                app:settingTitle="微信" />
+
+            <ezy.widget.view.SettingView
+                android:id="@+id/btn_qq"
+                style="@style/UI.Entry.Enter"
+                android:onClick="@{listener}"
+                app:settingValue="未绑定"
+                app:settingIcon="@mipmap/icon_qq"
+                app:settingTitle="QQ" />
+        </LinearLayout>
+
+
+
+
+        </LinearLayout>
+</layout>
+
+
+

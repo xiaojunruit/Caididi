@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+    <ezy.widget.view.ZeeBannerView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:bv_barColor="#00000000"
+        app:bv_barPaddingBottom="@dimen/gap_5x"
+        app:bv_barPaddingLeft="@dimen/gap_2x"
+        app:bv_barPaddingRight="@dimen/gap_2x"
+        app:bv_barPaddingTop="@dimen/gap_2x"
+        app:bv_barVisibleWhenLast="false"
+        app:bv_delay="3"
+        app:bv_scale="-1"
+        app:bv_isAuto="true"
+        app:bv_isLoop="false"
+        app:bv_interval="5"
+        app:bv_titleVisible="false"
+        app:bv_indicatorVisible="auto"
+        app:bv_indicatorGravity="center"
+        app:bv_indicatorCornerRadius="4dp"
+        app:bv_indicatorGap="8dp"
+        app:bv_indicatorHeight="8dp"
+        app:bv_indicatorColorSelected="@color/colorAccent"
+        app:bv_indicatorColor="#88ffffff"
+        app:bv_indicatorStyle="round"
+        app:bv_indicatorWidth="8dp"/>
+</layout>
