@@ -1,11 +1,13 @@
 package com.hyphenate.easeui.ui;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.provider.MediaStore;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -25,6 +29,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -110,7 +115,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
     private ImageView ivVoice;
     private ImageView ivKeyboard;
     private TextView tvSendVoice;
-    private RelativeLayout mRlSendTxt;
+    private FrameLayout mRlSendTxt;
     private ImageView ivAdd;
     private LinearLayout llFunction;
     private LinearLayout llVoice;
@@ -157,7 +162,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
         ivKeyboard = (ImageView) getView().findViewById(R.id.iv_keyboard);
         ivAdd = (ImageView) getView().findViewById(R.id.iv_add);
         tvSendVoice = (TextView) getView().findViewById(R.id.tv_send_voice);
-        mRlSendTxt = (RelativeLayout) getView().findViewById(R.id.rl_send_txt);
+        mRlSendTxt = (FrameLayout) getView().findViewById(R.id.rl_send_txt);
         llFunction = (LinearLayout) getView().findViewById(R.id.ll_function);
         llVoice = (LinearLayout) getView().findViewById(R.id.ll_voice);
         llVideo = (LinearLayout) getView().findViewById(R.id.ll_video);
@@ -186,35 +191,42 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
     }
 
 
-    public void picShareDialog() {
-        final PicSelectDialog dialog = new PicSelectDialog(getContext());
-        dialog.show();
-        Window window = dialog.getWindow();
-        window.setGravity(Gravity.BOTTOM); //可设置dialog的位置
-        window.getDecorView().setPadding(0, 0, 0, 0); //消除边距
-        WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;   //设置宽度充满屏幕
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        window.setAttributes(lp);
-        dialog.setOnCameraListener(new PicSelectDialog.OnCameraListener() {
-            @Override
-            public void setOnCameraListener() {
-                selectPicFromCamera();
-            }
-        });
-        dialog.setOnPhotoListener(new PicSelectDialog.OnPhotoListener() {
-            @Override
-            public void setOnPhotoListener() {
-                selectPicFromLocal();
-            }
-        });
+    private boolean isSoftShowing() {
+        //获取当前屏幕内容的高度
+        int screenHeight = getActivity().getWindow().getDecorView().getHeight();
+        //获取View可见区域的bottom
+        Rect rect = new Rect();
+        getActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        return screenHeight - rect.bottom - getSoftButtonsBarHeight()!= 0;
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private int getSoftButtonsBarHeight() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        //这个方法获取可能不是真实屏幕的高度
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int usableHeight = metrics.heightPixels;
+        //获取当前屏幕的真实高度
+        getActivity().getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+        int realHeight = metrics.heightPixels;
+        if (realHeight > usableHeight) {
+            return realHeight - usableHeight;
+        } else {
+            return 0;
+        }
     }
 
     private void listener() {
+        mRlSendTxt.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                llFunction.setVisibility(View.GONE);
+            }
+        });
         llPic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-//                picShareDialog();
                 selectPicFromLocal();
             }
         });
@@ -244,10 +256,29 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
                 }
             }
         });
+        etSendTxt.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (llFunction.getVisibility()==View.VISIBLE){
+                    llFunction.setVisibility(View.GONE);
+                }
+            }
+        });
         ivAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard();
+              if (isSoftShowing()) {
+                  new Handler().postDelayed(new Runnable() {
+                      @Override
+                      public void run() {
+                          llFunction.setVisibility(llFunction.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+                      }
+                  }, 400);
+                  return;
+              }
                 llFunction.setVisibility(llFunction.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+
             }
         });
         ivVoice.setOnClickListener(new OnClickListener() {
@@ -964,6 +995,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
                         InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
 
     /**
      * forward message

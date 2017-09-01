@@ -59,6 +59,7 @@ public class ContactsListActivity extends BaseActivity {
             Toast.makeText(this, "登陆失败", Toast.LENGTH_SHORT).show();
             return;
         }
+        mBinding.loading.showLoading();
         init();
     }
 
@@ -69,6 +70,7 @@ public class ContactsListActivity extends BaseActivity {
         mBinding.recyclerview.setLayoutManager(new LinearLayoutManager(this));
         conversations.clear();
         conversations.addAll(loadConversationList());
+        mBinding.loading.showContent();
         mBinding.llEmpty.setVisibility(conversations.size() < 1 ? View.VISIBLE : View.GONE);
         getAvatarData();
         mBinding.etChat.addTextChangedListener(new TextWatcher() {

@@ -72,7 +72,7 @@ public class VoiceCallActivity extends CallActivity implements OnClickListener {
     private TextView netwrokStatusVeiw;
     private boolean monitor = false;
     private LinearLayout llChronometer;
-//    private boolean isAutoVoice;
+    private TextView nickTextView;
 
 
     @Override
@@ -96,7 +96,7 @@ public class VoiceCallActivity extends CallActivity implements OnClickListener {
         mIvAvatar = (ImageView) findViewById(R.id.iv_avatar);
         handsFreeImage = (ImageView) findViewById(R.id.iv_handsfree);
         callStateTextView = (TextView) findViewById(R.id.tv_call_state);
-        TextView nickTextView = (TextView) findViewById(R.id.tv_nick);
+        nickTextView = (TextView) findViewById(R.id.tv_nick);
         TextView durationTextView = (TextView) findViewById(R.id.tv_calling_duration);
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         llChronometer = (LinearLayout) findViewById(R.id.ll_chronometer);
@@ -117,9 +117,8 @@ public class VoiceCallActivity extends CallActivity implements OnClickListener {
         msgid = UUID.randomUUID().toString();
         username = getIntent().getStringExtra("username");
         isInComingCall = getIntent().getBooleanExtra("isComingCall", false);
-//        isAutoVoice = getIntent().getBooleanExtra("isAutoVoice", false);
         getAvatar();
-        nickTextView.setText(username);
+//        nickTextView.setText(username);
         if (!isInComingCall) {// outgoing call
             soundPool = new SoundPool(1, AudioManager.STREAM_RING, 0);
             outgoing = soundPool.load(this, R.raw.em_outgoing, 1);
@@ -141,16 +140,6 @@ public class VoiceCallActivity extends CallActivity implements OnClickListener {
             audioManager.setSpeakerphoneOn(true);
             ringtone = RingtoneManager.getRingtone(this, ringUri);
             ringtone.play();
-//            LogUtil.e(")))))onCreate)))"+isAutoVoice);
-//            if (isAutoVoice){
-//                answerBtn.setEnabled(false);
-//                closeSpeakerOn();
-//                callStateTextView.setText("正在接听...");
-//                comingBtnContainer.setVisibility(View.INVISIBLE);
-//                hangupBtn.setVisibility(View.VISIBLE);
-//                voiceContronlLayout.setVisibility(View.VISIBLE);
-//                handler.sendEmptyMessage(MSG_CALL_ANSWER);
-//            }
         }
         final int MAKE_CALL_TIMEOUT = 50 * 1000;
         handler.removeCallbacks(timeoutHangup);
@@ -164,6 +153,8 @@ public class VoiceCallActivity extends CallActivity implements OnClickListener {
                 .subscribe(result -> {
                     if (result.data.size() >= 1) {
                         String avatar = result.data.get(0).avatar;
+                        String trueName=result.data.get(0).nickname;
+                        nickTextView.setText(trueName);
                         Glide.with(this).load(avatar).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mIvAvatar);
                     }
                 });
@@ -255,14 +246,14 @@ public class VoiceCallActivity extends CallActivity implements OnClickListener {
                     case VOICE_PAUSE:
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), "VOICE_PAUSE", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "VOICE_PAUSE", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
                     case VOICE_RESUME:
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), "VOICE_RESUME", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "VOICE_RESUME", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;

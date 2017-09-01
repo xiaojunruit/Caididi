@@ -123,6 +123,8 @@
         <activity
             android:name=".ui.my.activity.ChatActivity"
             android:label="聊天"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.LoginActivity"

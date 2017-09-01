@@ -45,14 +45,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{experList.truename}"
-                    android:textColor="@color/textClick"
+                    android:textColor="@color/colorAccent"
                     android:textSize="@dimen/sp_8"
                     tools:text="李云龙" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="向他咨询"
+                    android:text="向TA咨询"
                     android:textColor="@color/colorAccent" />
             </LinearLayout>
 
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="擅长作物："
-                    android:textSize="@dimen/sp_4" />
+                    android:textSize="@dimen/sp_5" />
 
                 <com.laoodao.caididi.ui.widget.TagCropGroup
                     android:id="@+id/tcg"

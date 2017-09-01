@@ -370,7 +370,8 @@ public class AnswerDetailActivity extends ListActivity implements View.OnClickLi
                     headerBinding.txtNames.setVisibility(result1.data.get(i).namesTotal == 0 ? View.GONE : View.VISIBLE);
                     headerBinding.txtNamesTotal.setVisibility(result1.data.get(i).namesTotal == 0 ? View.GONE : View.VISIBLE);
                     headerBinding.txtNames.setText(result1.data.get(i).names);
-                    headerBinding.txtNamesTotal.setText(result1.data.size() > 1 ? " 等" + result1.data.get(i).namesTotal + "人想知道答案" : " " + result1.data.get(i).namesTotal + "人想知道答案");
+                    headerBinding.txtNamesTotal.setText(result1.data.size() > 1 ? " 等" + result1.data.get(i).namesTotal + "人想知道答案" :
+                            " " + result1.data.get(i).namesTotal + "人想知道答案");
                 }
             });
         });

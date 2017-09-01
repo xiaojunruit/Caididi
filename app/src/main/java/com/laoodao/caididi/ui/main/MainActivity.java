@@ -11,6 +11,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -30,7 +31,9 @@ import com.laoodao.caididi.R;
 import com.laoodao.caididi.common.api.API;
 import com.laoodao.caididi.common.app.BaseActivity;
 import com.laoodao.caididi.common.util.KeyboardUtil;
+import com.laoodao.caididi.common.util.RxBus;
 import com.laoodao.caididi.databinding.ActivityMainBinding;
+import com.laoodao.caididi.event.HuanXinCountEvent;
 import com.laoodao.caididi.retrofit.user.LoginInfo;
 import com.laoodao.caididi.ui.main.fragment.AnswerFragment;
 import com.laoodao.caididi.ui.main.fragment.FarmingFragment;
@@ -49,6 +52,7 @@ import java.util.List;
 import ezy.boost.update.UpdateAgent;
 import ezy.boost.update.UpdateManager;
 import ezy.lite.util.ContextUtil;
+import ezy.lite.util.LogUtil;
 import ezy.lite.util.UI;
 import ezy.widget.adapter.TabsAdapter;
 import ezy.widget.view.IconTextButton;
@@ -174,6 +178,14 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(MainActivity.this, "请求权限失败,请前往设置开启权限", Toast.LENGTH_SHORT).show();
             }
         }, new RxPermissions(this));
+        RxBus.ofType(HuanXinCountEvent.class).compose(bindToLifecycle()).subscribe(event -> {
+            if (binding.msgCount == null) {
+                return;
+            }
+            binding.msgCount.setVisibility(getUnreadMsgCountTotal() >= 1 ? View.VISIBLE : View.GONE);
+            binding.msgCount.setText(String.valueOf(getUnreadMsgCountTotal()));
+
+        });
 //        RxBus.ofType(LoginInfoChangedEvent.class).compose(bindToLifecycle()).subscribe(event -> {
 //
 //        });
@@ -261,6 +273,9 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    public int getUnreadMsgCountTotal() {
+        return EMClient.getInstance().chatManager().getUnreadMsgsCount();
+    }
 
     public void loginHuanXin(String pwd) {
         if (!EMClient.getInstance().isLoggedInBefore()) {
@@ -272,6 +287,14 @@ public class MainActivity extends BaseActivity {
                         EMClient.getInstance().groupManager().loadAllGroups();
                         EMClient.getInstance().chatManager().loadAllConversations();
                         Log.e("main", "登录聊天服务器成功！");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                binding.msgCount.setVisibility(getUnreadMsgCountTotal() >= 1 ? View.VISIBLE : View.GONE);
+                                binding.msgCount.setText(String.valueOf(getUnreadMsgCountTotal()));
+                            }
+                        });
+
                     }
 
                     @Override

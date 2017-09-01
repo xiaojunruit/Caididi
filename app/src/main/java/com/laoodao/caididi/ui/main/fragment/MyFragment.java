@@ -19,6 +19,7 @@ import com.laoodao.caididi.common.api.API;
 import com.laoodao.caididi.common.app.BindingFragment;
 import com.laoodao.caididi.common.util.RxBus;
 import com.laoodao.caididi.databinding.FragmentMyBinding;
+import com.laoodao.caididi.event.HuanXinCountEvent;
 import com.laoodao.caididi.event.LoginInfoChangedEvent;
 import com.laoodao.caididi.event.RedDotEvent;
 import com.laoodao.caididi.retrofit.user.DynamicMenu;
@@ -104,7 +105,7 @@ public class MyFragment extends BindingFragment<FragmentMyBinding> implements Vi
                         EMClient.getInstance().groupManager().loadAllGroups();
                         EMClient.getInstance().chatManager().loadAllConversations();
                         Log.e("main", "登录聊天服务器成功！");
-                        startActivity(new Intent(getActivity(), MainActivity.class));
+                        RxBus.post(new HuanXinCountEvent());
                     }
 
                     @Override
@@ -143,6 +144,9 @@ public class MyFragment extends BindingFragment<FragmentMyBinding> implements Vi
     public void onResume() {
         super.onResume();
         refresh();
+        if (EMClient.getInstance().isLoggedInBefore()){
+            RxBus.post(new HuanXinCountEvent());
+        }
     }
 
     private void refresh() {

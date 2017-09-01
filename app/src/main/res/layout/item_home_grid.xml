@@ -11,8 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:background="@color/white"
         android:padding="@dimen/gap_2x"
         >
@@ -21,6 +20,8 @@
             android:id="@+id/iv_icon"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/gap_3x"
+            tools:src="@mipmap/ic_phone_time"
             android:src="@{item.icon}"/>
 
         <TextView

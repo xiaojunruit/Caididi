@@ -24,12 +24,12 @@
         "source": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_voice_btn.xml"
     },
     {
-        "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_colored_material.xml",
-        "source": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_btn_colored_material.xml"
-    },
-    {
         "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_edit_text_bg.xml",
         "source": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_edit_text_bg.xml"
+    },
+    {
+        "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
         "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatfrom_bg.xml",
@@ -86,10 +86,6 @@
     {
         "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_mm_listitem.xml",
         "source": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_mm_listitem.xml"
-    },
-    {
-        "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatto_bg.xml",
-        "source": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatto_bg.xml"
     },
     {
         "merged": "E:\\androidproject\\CaididiApp\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",

@@ -216,6 +216,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Answer
 
         @Override
         protected FilterResults performFiltering(CharSequence prefix) {
+
             FilterResults results = new FilterResults();
 
             if (mOriginalValues == null) {
@@ -234,35 +235,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Answer
 
                 for (int i = 0; i < count; i++) {
                     final EMConversation value = mOriginalValues.get(i);
-                    String username = value.conversationId();
-
-                    EMGroup group = EMClient.getInstance().groupManager().getGroup(username);
-                    if (group != null) {
-                        username = group.getGroupName();
-                    } else {
-                        EaseUser user = EaseUserUtils.getUserInfo(username);
-                        // TODO: not support Nick anymore
-//                        if(user != null && user.getNick() != null)
-//                            username = user.getNick();
-                    }
-
-                    // First match against the whole ,non-splitted value
-                    if (username.startsWith(prefixString)) {
+                    if (mAvatarData.get(i).nickname.contains(prefixString)){
                         newValues.add(value);
-                    } else {
-                        final String[] words = username.split(" ");
-                        final int wordCount = words.length;
-
-                        // Start at index 0, in case valueText starts with space(s)
-                        for (String word : words) {
-                            if (word.startsWith(prefixString)) {
-                                newValues.add(value);
-                                break;
-                            }
-                        }
                     }
                 }
-
                 results.values = newValues;
                 results.count = newValues.size();
             }

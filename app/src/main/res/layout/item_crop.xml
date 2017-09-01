@@ -11,7 +11,7 @@
     android:paddingTop="1dp"
     android:textColor="@color/white"
     android:textSize="@dimen/sp_4"
-    app:rv_backgroundColor="@color/colorAccent"
+    app:rv_backgroundColor="#88D57A"
     app:rv_cornerRadius="@dimen/gap_2x"
     tools:text="尖椒" />
 

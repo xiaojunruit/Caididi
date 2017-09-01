@@ -59,6 +59,8 @@ import com.hyphenate.util.EMLog;
 import com.laoodao.caididi.Global;
 import com.laoodao.caididi.R;
 import com.laoodao.caididi.common.api.API;
+import com.laoodao.caididi.retrofit.user.LoginInfo;
+import com.laoodao.caididi.ui.my.activity.ChatActivity;
 import com.superrtc.sdk.VideoView;
 
 import java.io.File;
@@ -120,6 +122,8 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
     private ImageView hangupBtn2;
     private ImageView muteImage2;
     private ImageView handsFreeImage2;
+    private String mAvatar = "";
+    private String mTrueName;
 
     // dynamic adjust brightness
     class BrightnessDataProcess implements EMCameraDataProcessor {
@@ -156,7 +160,6 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
 
         Global.isVideoCalling = true;
         callType = 1;
-
         getWindow().addFlags(
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                         | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
@@ -221,7 +224,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
 
         getAvatar();
         nickTextView.setText(username);
-        nickTextView2.setText(username);
+//        nickTextView2.setText(username);
 
         // local surfaceview
         localSurface = (EMCallSurfaceView) findViewById(R.id.local_surface);
@@ -253,7 +256,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
             }, 300);
         } else { // incoming call
 
-            callStateTextView.setText("Ringing");
+            callStateTextView.setText("邀请您进行视频聊天");
             if (EMClient.getInstance().callManager().getCallState() == EMCallStateChangeListener.CallState.IDLE
                     || EMClient.getInstance().callManager().getCallState() == EMCallStateChangeListener.CallState.DISCONNECTED) {
                 // the call has ended
@@ -279,6 +282,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
 
         EMClient.getInstance().callManager().setCameraDataProcessor(dataProcessor);
 
+
     }
 
 
@@ -287,8 +291,10 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                 .compose(transform())
                 .subscribe(result -> {
                     if (result.data.size() >= 1) {
-                        String avatar = result.data.get(0).avatar;
-                        Glide.with(this).load(avatar).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(ivAvatar);
+                        mAvatar = result.data.get(0).avatar;
+                        mTrueName = result.data.get(0).nickname;
+                        nickTextView2.setText(mTrueName);
+                        Glide.with(this).load(mAvatar).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(ivAvatar);
                     }
                 });
     }
@@ -423,7 +429,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                             public void run() {
 //                                Toast.makeText(getApplicationContext(), "VIDEO_PAUSE", Toast.LENGTH_SHORT).show();
                                 try {
-                                    if (EMClient.getInstance().callManager().getCallState()!=CallState.VIDEO_PAUSE) {
+                                    if (EMClient.getInstance().callManager().getCallState() != CallState.VIDEO_PAUSE) {
                                         llExcessive.setVisibility(View.VISIBLE);
                                         rootContainer.setVisibility(View.GONE);
                                         callStateTextView.setVisibility(View.GONE);
@@ -443,7 +449,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                     case VIDEO_RESUME:
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), "VIDEO_RESUME", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "VIDEO_RESUME", Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -451,7 +457,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                     case VOICE_PAUSE:
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), "VOICE_PAUSE", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "VOICE_PAUSE", Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -459,7 +465,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                     case VOICE_RESUME:
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), "VOICE_RESUME", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "VOICE_RESUME", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
@@ -542,7 +548,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                                         }
                                     }
                                 }
-                                Toast.makeText(VideoCallActivity.this, callStateTextView.getText(), Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(VideoCallActivity.this, callStateTextView.getText(), Toast.LENGTH_SHORT).show();
                                 postDelayedCloseMsg();
                             }
 
@@ -580,6 +586,8 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                 EMMessage message = EMMessage.createTxtSendMessage(content, username);
                 EMClient.getInstance().chatManager().sendMessage(message);
             }
+            LoginInfo info = Global.info();
+            ChatActivity.start(this, username, mAvatar, info.avatar, "", mTrueName);
             finish();
         });
     }
@@ -732,7 +740,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(VideoCallActivity.this, "saved image to:" + filename, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(VideoCallActivity.this, "saved image to:" + filename, Toast.LENGTH_SHORT).show();
                     }
                 });
                 break;
